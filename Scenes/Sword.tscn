@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Images/sword.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Sword.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.284256, 0.397091 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -49.103, 141.717, 134.292, 134.292 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.398176 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.398176 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[node name="Sword" type="Area2D"]
+rotation = -0.857009
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -100, -600 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 249.183, -249.897 )
+polygon = PoolVector2Array( 345.944, -342.52, 243.521, -301.327, 161.281, -241.975, -140.875, 78.1434, -169.523, 85.117, -174.405, 130.972, -286.608, 244.012, -324.54, 247.133, -303.079, 295.94, -252.779, 327.696, -241.895, 279.616, -126.41, 172.653, -84.0244, 166.665, -74.1257, 132.323, 242.519, -165.327, 305.425, -243.571 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

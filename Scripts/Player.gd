@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
+onready var sword = $Sword
 
 func get_input():
+	if Input.is_action_pressed("click"):
+		sword.attack()
 	velocity = Vector2()
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
