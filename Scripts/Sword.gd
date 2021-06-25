@@ -5,7 +5,7 @@ signal attack_finished
 onready var animation_player = $AnimationPlayer
 
 enum STATES {IDLE, ATTACK}
-var current_state = BUTTON_MASK_MIDDLE
+var current_state = STATES.IDLE
 
 var bodies_hit = []
 
