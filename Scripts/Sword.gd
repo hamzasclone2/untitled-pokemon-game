@@ -7,6 +7,8 @@ onready var animation_player = $AnimationPlayer
 enum STATES {IDLE, ATTACK}
 var current_state = BUTTON_MASK_MIDDLE
 
+var bodies_hit = []
+
 func _ready():
 	set_physics_process(false)
 	
@@ -18,6 +20,7 @@ func _change_state(new_state):
 	current_state = new_state
 	match current_state:
 		STATES.IDLE:
+			bodies_hit = []
 			set_physics_process(false)
 		STATES.ATTACK:
 			set_physics_process(true)
@@ -28,12 +31,13 @@ func _physics_process(delta):
 	if not overlapping_bodies:
 		return
 	for body in overlapping_bodies:
-		if body.is_in_group("enemy"):
+		if body.is_in_group("enemy") && not bodies_hit.has(body.name):
 			body.take_damage(PlayerAttributes.swordDamage)
+			bodies_hit.append(body.name)
 	set_physics_process(false)
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if name == "attack":
+	if anim_name == "attack":
 		_change_state(STATES.IDLE)
 		emit_signal("attack_finished")
