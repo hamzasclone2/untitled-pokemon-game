@@ -34,7 +34,6 @@ func _physics_process(delta):
 		if body.is_in_group("enemy") && not bodies_hit.has(body.name):
 			body.take_damage(PlayerAttributes.swordDamage)
 			bodies_hit.append(body.name)
-	set_physics_process(false)
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name):
