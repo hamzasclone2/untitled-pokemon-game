@@ -5,6 +5,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
+length = 0.55
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -12,10 +14,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.284256, 0.397091 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.284256, 0.397091, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -49.103, 141.717, 134.292, 134.292 ]
+"values": [ -49.103, 141.717, 134.292, 134.292, -49.103 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -24,10 +26,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.398176 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.398176, 0.4, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true, false, true, true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:monitoring")
@@ -36,10 +38,22 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.398176 ),
+"times": PoolRealArray( 0, 0.398176, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionPolygon2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, true ]
+"values": [ false, true ]
 }
 
 [node name="Sword" type="Area2D"]
@@ -57,5 +71,6 @@ offset = Vector2( -100, -600 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 249.183, -249.897 )
 polygon = PoolVector2Array( 345.944, -342.52, 243.521, -301.327, 161.281, -241.975, -140.875, 78.1434, -169.523, 85.117, -174.405, 130.972, -286.608, 244.012, -324.54, 247.133, -303.079, 295.94, -252.779, 327.696, -241.895, 279.616, -126.41, 172.653, -84.0244, 166.665, -74.1257, 132.323, 242.519, -165.327, 305.425, -243.571 )
+disabled = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
