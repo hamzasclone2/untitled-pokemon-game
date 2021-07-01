@@ -27,3 +27,6 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( 41.2945, -6.48914 )
 rotation = 1.97916
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
