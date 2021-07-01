@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Images/icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Sword.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Bow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Spear.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.1815, 31.6009 )
@@ -20,14 +21,19 @@ visible = false
 position = Vector2( 35.4921, 25.4271 )
 scale = Vector2( 0.1, 0.1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.05949, -0.529732 )
-shape = SubResource( 1 )
+[node name="Spear" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0.651977, 36.0026 )
+rotation = 1.59039
+scale = Vector2( 0.2, 0.15 )
 
 [node name="Bow" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 41.2945, -6.48914 )
 rotation = 1.97916
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.05949, -0.529732 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
