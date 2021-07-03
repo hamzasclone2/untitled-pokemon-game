@@ -39,26 +39,21 @@ func get_input():
 		#For now will be forced to sword
 		if PlayerAttributes.current_weapon != "sword":
 			PlayerAttributes.current_weapon = "sword"
-			sword.visible = true
-			bow.visible = false
+
 			print ("Current equipped weapon: ", PlayerAttributes.current_weapon)
 	if Input.is_action_just_pressed("slot 2"):
 		if PlayerAttributes.current_weapon != "spear":
 			PlayerAttributes.current_weapon = "spear"
-			sword.visible = false
-			bow.visible = true
+
 	if Input.is_action_just_pressed("slot 3"):
 		#For now will be forced to bow
 		if PlayerAttributes.current_weapon != "bow":
 			PlayerAttributes.current_weapon = "bow"
-			bow.visible = true
-			sword.visible = false
+
 			print ("Current equipped weapon: ", PlayerAttributes.current_weapon)
 	if Input.is_action_just_pressed("slot 4"):
 		if PlayerAttributes.current_weapon != "empty":
 			PlayerAttributes.current_weapon = "empty"
-			bow.visible = false
-			sword.visible = false
 			print ("Current equipped weapon: ", PlayerAttributes.current_weapon)
 			
 	velocity = velocity.normalized() * PlayerAttributes.speed

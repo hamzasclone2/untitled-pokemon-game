@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
-var health = 2
+onready var health = NpcManager.get_health("BasicEnemy")
 onready var sprite = $Sprite
 onready var AnimPlayer = $AnimationPlayer
+onready var ThreatArea = $Area2D/ThreatArea
+export var agro = 0
 
 func take_damage(damage):
 	health -= damage
@@ -11,3 +13,11 @@ func take_damage(damage):
 func _process(delta):
 	if health <= 0:
 		queue_free()
+
+func _ready():
+	ThreatArea.scale.x = agro * PlayerAttributes.threat_level
+	ThreatArea.scale.y = agro * PlayerAttributes.threat_level
+
+
+func _on_Area2D_body_entered(body):
+	print ("HES GONNA GET IT!")

@@ -21,6 +21,7 @@ config/icon="res://Images/icon.png"
 [autoload]
 
 PlayerAttributes="*res://Scripts/PlayerAttributes.gd"
+NpcManager="*res://Scripts/NPCManager.gd"
 
 [input]
 

@@ -9,15 +9,19 @@ script = ExtResource( 1 )
 
 [node name="BasicEnemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 623.145, 206.922 )
+agro = 5
 
 [node name="BasicEnemy2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 255.68, 190.273 )
+agro = 10
 
 [node name="BasicEnemy3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 850.284, 412.655 )
+agro = 15
 
 [node name="BasicEnemy4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 170.052, 454.607 )
+agro = 20
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 448.331, 386.492 )
