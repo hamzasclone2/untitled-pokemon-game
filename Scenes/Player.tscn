@@ -22,12 +22,12 @@ position = Vector2( 35.4921, 25.4271 )
 scale = Vector2( 0.1, 0.1 )
 
 [node name="Spear" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 0.651977, 36.0026 )
 rotation = 1.59039
 scale = Vector2( 0.2, 0.15 )
 
 [node name="Bow" parent="." instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 41.2945, -6.48914 )
 rotation = 1.97916
 
