@@ -8,5 +8,5 @@ func set_dir(dir: Vector2):
 func _process(delta):
 	var speed_x = loc_dir.x
 	var speed_y = loc_dir.y
-	var motion = Vector2(speed_x, speed_y) * 1
+	var motion = Vector2(speed_x, speed_y) * 50
 	set_position(get_position() + motion * delta)
