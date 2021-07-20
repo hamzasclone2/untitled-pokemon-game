@@ -13,11 +13,7 @@ func shoot():
 	arrow.set_rotation(get_parent().get_global_rotation() + (45 * PI/180))
 	var dir1: float = get_global_mouse_position().x - arrow.get_global_position().x
 	var dir2: float = get_global_mouse_position().y - arrow.get_global_position().y
-	print (dir1)
-	print (dir2)
 	var dirmax: float = max(abs(dir1), abs(dir2))
-	print (dirmax)
-	print ("---------------------")
 	
 	dir1 = dir1 / dirmax
 	dir2 = dir2 / dirmax
