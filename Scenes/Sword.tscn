@@ -59,6 +59,4 @@ offset = Vector2( -100, -600 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 249.183, -249.897 )
 polygon = PoolVector2Array( 345.944, -342.52, 243.521, -301.327, 161.281, -241.975, -140.875, 78.1434, -169.523, 85.117, -174.405, 130.972, -286.608, 244.012, -324.54, 247.133, -303.079, 295.94, -252.779, 327.696, -241.895, 279.616, -126.41, 172.653, -84.0244, 166.665, -74.1257, 132.323, 242.519, -165.327, 305.425, -243.571 )
-disabled = true
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
