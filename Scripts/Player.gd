@@ -14,6 +14,8 @@ func get_input():
 			sword.attack()
 		if PlayerAttributes.current_weapon == "bow":
 			bow.shoot()
+		if PlayerAttributes.current_weapon == "spear":
+			spear.attack()
 	velocity = Vector2()
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1

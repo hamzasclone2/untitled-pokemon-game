@@ -23,7 +23,7 @@ scale = Vector2( 0.1, 0.1 )
 
 [node name="Spear" parent="." instance=ExtResource( 5 )]
 visible = false
-position = Vector2( 0.651977, 36.0026 )
+position = Vector2( 0.651977, -0.766956 )
 rotation = 1.59039
 scale = Vector2( 0.2, 0.15 )
 

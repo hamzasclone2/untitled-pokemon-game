@@ -1,10 +1,30 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Images/spear.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Spear.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -56, 0 ), Vector2( 160, -8 ), Vector2( 0, 0 ) ]
+}
 
 [node name="Spear" type="Area2D"]
+rotation = 1.56859
+script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -0.79187
@@ -12,3 +32,4 @@ texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 0.00659867
+polygon = PoolVector2Array( -6.08028, -331.554, 3.10725, -332.322, 0.0409174, -368.365, 8.28805, -404.483, 8.85516, -425.7, -3.45935, -470.168, -16.5768, -421.997, -7.04867, -371.147 )

@@ -41,5 +41,4 @@ anims/hit = SubResource( 2 )
 
 [node name="ThreatArea" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
