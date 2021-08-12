@@ -6,6 +6,12 @@ onready var AnimPlayer = $AnimationPlayer
 onready var ThreatArea = $Area2D/ThreatArea
 export var agro = 0
 
+var speed = NpcManager.get_speed("BasicEnemy")
+var velocity = Vector2()
+var timer = 0
+var waitTime = 2
+var isWalkingRight = false
+
 func take_damage(damage):
 	health -= damage
 	AnimPlayer.play("hit")
@@ -13,6 +19,17 @@ func take_damage(damage):
 func _process(delta):
 	if health <= 0:
 		queue_free()
+		
+func _physics_process(delta):
+	timer += delta
+	if(isWalkingRight and timer<waitTime):
+		walk("right")
+	elif(!isWalkingRight and timer <waitTime):
+		walk("left")
+	elif(timer >= waitTime):
+		isWalkingRight = !isWalkingRight
+		timer = 0
+	
 
 func _ready():
 	ThreatArea.scale.x = agro * PlayerAttributes.threat_level
@@ -22,3 +39,10 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		print ("HES GONNA GET IT!")
+		
+func walk(direction):
+	if(direction == "right"):
+		velocity.x = speed
+	elif(direction == "left"):
+		velocity.x = -speed
+	move_and_slide(velocity)
