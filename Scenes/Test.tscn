@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Test.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/BasicEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/NPCs/Bob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/DialoguePopup.tscn" type="PackedScene" id=6]
 
 [node name="Test" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,3 +31,10 @@ position = Vector2( 448.331, 386.492 )
 
 [node name="TileMap" parent="." instance=ExtResource( 4 )]
 tile_data = PoolIntArray( -327676, 1, 0, -327675, 1, 0, -327674, 1, 0, -327673, 1, 0, -327672, 12, 0, -327671, 12, 0, -327670, 12, 0, -327669, 12, 0, -327668, 12, 0, -327667, 12, 0, -327666, 12, 0, -327665, 12, 0, -327664, 12, 0, -327663, 12, 0, -327662, 12, 0, -327661, 12, 0, -327660, 12, 0, -262124, 12, 0, -196605, 11, 0, -196603, 9, 0, -196601, 11, 0, -196590, 7, 0, -196588, 12, 0, -65537, 1, 0, -131060, 12, 0, -131059, 12, 0, -131058, 12, 0, -131057, 12, 0, -131056, 12, 0, -131052, 12, 0, -1, 1, 0, -65521, 10, 0, -65520, 12, 0, -65519, 12, 0, -65518, 12, 0, -65517, 12, 0, -65516, 12, 0, 65535, 1, 0, 15, 10, 0, 16, 12, 0, 131071, 12, 0, 65548, 12, 0, 65549, 12, 0, 65550, 12, 0, 65551, 12, 0, 65552, 12, 0, 196607, 12, 0, 131084, 12, 0, 262143, 12, 0, 196620, 12, 0, 327679, 12, 0, 262156, 8, 0, 393215, 12, 0, 327692, 8, 0, 458751, 12, 0, 393228, 12, 0, 524287, 12, 0, 458764, 12, 0, 589823, 12, 0, 524288, 12, 0, 524289, 12, 0, 524290, 12, 0, 524291, 12, 0, 524292, 8, 0, 524293, 8, 0, 524294, 12, 0, 524295, 12, 0, 524296, 12, 0, 524297, 12, 0, 524298, 12, 0, 524299, 12, 0, 524300, 12, 0 )
+
+[node name="Bob" parent="." instance=ExtResource( 5 )]
+position = Vector2( 668, 568 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]

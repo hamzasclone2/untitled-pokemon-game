@@ -7,6 +7,8 @@ onready var spear = $Spear
 
 var weapons = ["empty", "sword", "spear", "bow"]
 var weaponsIndex = 0
+var isAbleToTalk = false
+var npc
 
 func get_input():
 	if Input.is_action_just_pressed("click"):
@@ -83,3 +85,16 @@ func _physics_process(delta):
 		sword.visible = false
 		bow.visible = false
 		spear.visible = false
+	if(isAbleToTalk and Input.is_action_pressed("ui_accept")):
+		npc.talk()
+		
+
+
+func _on_Area2D_body_entered(body):
+	if(body.is_in_group("NPC")):
+		isAbleToTalk = true
+		npc = body
+
+
+func _on_Area2D_body_exited(body):
+	isAbleToTalk = false
