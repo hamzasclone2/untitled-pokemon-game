@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/BasicEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/path.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 102.052, 98.5996, 0, 0, 0, 0, 437.732, 97.5996, 0, 0, 0, 0, 434.123, 19.5996, 0, 0, 0, 0, 103.255, 20.5996, 0, 0, 0, 0, 102.052, 98.5996 )
+}
+
+[node name="path" type="Path2D"]
+position = Vector2( -0.620261, 0 )
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="follow" type="PathFollow2D" parent="."]
+position = Vector2( 102.052, 98.5996 )
+rotation = -0.00298017
+
+[node name="BasicEnemy" parent="follow" instance=ExtResource( 1 )]
