@@ -1,6 +1,6 @@
 extends Node2D
 
-var ARROW_SCENE = preload("res://Scenes/Arrow.tscn")
+var ARROW_SCENE = preload("res://Game/Weapons/Arrow.tscn")
 
 onready var arrow_pos = $ArrowPos
 

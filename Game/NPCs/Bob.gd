@@ -9,7 +9,7 @@ var player
 
 
 func _ready():
-	dialoguePopup = get_tree().root.get_node("Test/CanvasLayer/DialoguePopup")
+	dialoguePopup = get_tree().root.get_node("Test/UserInterface/DialoguePopup")
 	player = get_tree().root.get_node("Test/Player")
 	
 func talk(answer = ""):

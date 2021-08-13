@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Images/arrow.png.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=2]
+[ext_resource path="res://Game/Weapons/Arrow.gd" type="Script" id=2]
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 69.5886
@@ -28,6 +30,5 @@ polygon = PoolVector2Array( 19.9213, -24.9984, 31.5428, -31.3696, 25.6436, -20.3
 position = Vector2( -0.471954, -1.17984 )
 rotation = 0.817718
 shape = SubResource( 1 )
-
 [connection signal="body_entered" from="ArrowTip" to="." method="_on_ArrowTip_body_entered"]
 [connection signal="body_entered" from="Pickup" to="." method="_on_Pickup_body_entered"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/Test.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/NPCs/Bob.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/DialoguePopup.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Path.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/Levels/Test.gd" type="Script" id=1]
+[ext_resource path="res://Game/UI/UserInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/TileMaps/TileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/NPCs/Bob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Enemies/Path.tscn" type="PackedScene" id=7]
 
 [node name="Test" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,10 +19,6 @@ tile_data = PoolIntArray( -327676, 1, 0, -327675, 1, 0, -327674, 1, 0, -327673, 
 [node name="Bob" parent="." instance=ExtResource( 5 )]
 position = Vector2( 100, 544 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DialoguePopup" parent="CanvasLayer" instance=ExtResource( 6 )]
-
 [node name="path" parent="." instance=ExtResource( 7 )]
 
 [node name="path2" parent="." instance=ExtResource( 7 )]
@@ -34,3 +30,5 @@ position = Vector2( 895.38, -308 )
 [node name="path4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 767.38, 566 )
 rotation = -1.55618
+
+[node name="UserInterface" parent="." instance=ExtResource( 2 )]
