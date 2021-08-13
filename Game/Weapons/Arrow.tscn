@@ -3,8 +3,6 @@
 [ext_resource path="res://Images/arrow.png.png" type="Texture" id=1]
 [ext_resource path="res://Game/Weapons/Arrow.gd" type="Script" id=2]
 
-
-
 [sub_resource type="CapsuleShape2D" id=1]
 height = 69.5886
 

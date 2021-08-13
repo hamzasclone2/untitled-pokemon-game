@@ -33,5 +33,5 @@ func _on_Pickup_body_entered(body):
 
 
 func _on_ArrowTip_body_entered(body):
-	if body.name != "Player":
+	if body.name != "Player" and body.is_in_group("Enemy"):
 		body.take_damage(100)
