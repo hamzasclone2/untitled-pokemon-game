@@ -9,6 +9,7 @@ var weapons = ["empty", "sword", "spear", "bow"]
 var weaponsIndex = 0
 var isAbleToTalk = false
 var npc
+onready var talkLabel = get_tree().root.get_node("Test/UserInterface/TalkLabel")
 
 func get_input():
 	if Input.is_action_just_pressed("click"):
@@ -85,8 +86,12 @@ func _physics_process(delta):
 		sword.visible = false
 		bow.visible = false
 		spear.visible = false
-	if(isAbleToTalk and Input.is_action_pressed("ui_accept")):
-		npc.talk()
+		
+	if(isAbleToTalk):
+		talkLabel.visible = true
+		if(Input.is_action_pressed("ui_accept")):
+			npc.talk()
+			talkLabel.visible = false
 		
 
 
@@ -98,3 +103,4 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	isAbleToTalk = false
+	talkLabel.visible = false

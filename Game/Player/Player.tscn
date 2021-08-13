@@ -6,11 +6,6 @@
 [ext_resource path="res://Game/Weapons/Bow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Weapons/Spear.tscn" type="PackedScene" id=5]
 
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.1815, 31.6009 )
 
@@ -46,9 +41,9 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="TalkArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
 shape = SubResource( 2 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="TalkArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="TalkArea" to="." method="_on_Area2D_body_exited"]
