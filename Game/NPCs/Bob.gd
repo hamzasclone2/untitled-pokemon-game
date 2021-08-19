@@ -6,7 +6,7 @@ var dialogue_state = 0
 
 var dialoguePopup
 var player
-
+var slingshot_found
 
 func _ready():
 	dialoguePopup = get_tree().root.get_node("Test/UserInterface/DialoguePopup")
@@ -20,7 +20,7 @@ func talk(answer = ""):
 			match dialogue_state:
 				0:
 					dialogue_state = 1
-					dialoguePopup.dialogue = "Hello Warrior! Would you mind getting rid of these barbarians for me?"
+					dialoguePopup.dialogue = "Hello Warrior! Do you think you could find my slingshot for me?"
 					dialoguePopup.answers = "[Y]es [N]o"
 					dialoguePopup.open()
 				1:
@@ -46,21 +46,23 @@ func talk(answer = ""):
 			match dialogue_state:
 				0:
 					dialogue_state = 1
-					dialoguePopup.dialogue = "Did you kill them all yet?"
-					dialoguePopup.answers = "[Y]es [N]o"
+					dialoguePopup.dialogue = "Have you found it yet?"
+					if slingshot_found:
+						dialoguePopup.answers = "[Y]es [N]o"
+					else:
+						dialoguePopup.answers = "[N]o"
 					dialoguePopup.open()
 				1:
-					match answer:
-						"Y":
-							dialogue_state = 2
-							dialoguePopup.dialogue = "Thanks, bud!"
-							dialoguePopup.answers = "[Y]eah no problem!"
-							dialoguePopup.open()
-						"N":
-							dialogue_state = 3
-							dialoguePopup.dialogue = "Oh...well you said you would..."
-							dialoguePopup.answers = "[Y]eah, I'm working on it!"
-							dialoguePopup.open()
+					if slingshot_found and answer == "Y":
+						dialogue_state = 2
+						dialoguePopup.dialogue = "Thanks, bud!"
+						dialoguePopup.answers = "[Y]eah no problem!"
+						dialoguePopup.open()
+					else:
+						dialogue_state = 3
+						dialoguePopup.dialogue = "Oh...well you said you would..."
+						dialoguePopup.answers = "[Y]eah, I'm working on it!"
+						dialoguePopup.open()
 				2:
 					dialogue_state = 0
 					quest_status = QuestStatus.COMPLETED
