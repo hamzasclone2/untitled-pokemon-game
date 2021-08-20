@@ -5,12 +5,10 @@ onready var sprite = $Sprite
 onready var AnimPlayer = $AnimationPlayer
 onready var ThreatArea = $Area2D/ThreatArea
 export var agro = 0
+var attack = 1
 
 var speed = NpcManager.get_speed("BasicEnemy")
 var velocity = Vector2()
-var timer = 0
-var waitTime = 2
-var isWalkingRight = false
 
 func take_damage(damage):
 	health -= damage

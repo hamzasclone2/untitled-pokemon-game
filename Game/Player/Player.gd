@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
+var knockback = Vector2.ZERO
 onready var sword = $Sword
 onready var bow = $Bow
 onready var spear = $Spear
+onready var AnimPlayer = $AnimationPlayer
 
 var weapons = ["empty", "sword", "spear", "bow"]
 var weaponsIndex = 0
@@ -69,6 +71,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide(velocity)
+	knockback(delta)
 	look_at(get_global_mouse_position())
 	if PlayerAttributes.current_weapon == "sword":
 		sword.visible = true
@@ -92,8 +95,27 @@ func _physics_process(delta):
 		if(Input.is_action_pressed("ui_accept")):
 			npc.talk()
 			talkLabel.visible = false
-		
+	
+	
 
+func knockback(delta):
+	knockback = knockback.move_toward(Vector2.ZERO, 500 * delta)
+	knockback = move_and_slide(knockback)
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		if collision.collider.is_in_group("enemy"):
+			AnimPlayer.play("hit")
+			var enemy = collision.collider
+			knockback = enemy.global_position.direction_to(self.global_position) * 300
+			var damage = enemy.attack
+			takeDamage(damage)
+
+func takeDamage(damage):
+	PlayerAttributes.health -= damage
+	if(PlayerAttributes.health < 0):
+		pass
+		#Eventually this is where you would die
 
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("NPC")):

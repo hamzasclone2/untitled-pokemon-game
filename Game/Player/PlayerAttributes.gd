@@ -1,6 +1,6 @@
 extends Node
 
-var health
+var health = 10
 var armor = 10
 var swordDamage = 1
 var spearDamage = 1
