@@ -13,6 +13,7 @@ var isAbleToTalk = false
 var npc
 onready var talkLabel = get_tree().root.get_node("Test/UserInterface/TalkLabel")
 
+
 func get_input():
 	if Input.is_action_just_pressed("click"):
 		if PlayerAttributes.current_weapon == "sword":
@@ -99,23 +100,24 @@ func _physics_process(delta):
 	
 
 func knockback(delta):
-	knockback = knockback.move_toward(Vector2.ZERO, 500 * delta)
+	knockback = knockback.move_toward(Vector2.ZERO, 1400 * delta)
 	knockback = move_and_slide(knockback)
-	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		if collision.collider.is_in_group("enemy"):
 			AnimPlayer.play("hit")
 			var enemy = collision.collider
-			knockback = enemy.global_position.direction_to(self.global_position) * 300
+			knockback = enemy.global_position.direction_to(self.global_position) * 700
 			var damage = enemy.attack
 			takeDamage(damage)
+			
 
 func takeDamage(damage):
 	PlayerAttributes.health -= damage
 	if(PlayerAttributes.health < 0):
 		pass
 		#Eventually this is where you would die
+		#queue_free()
 
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("NPC")):
