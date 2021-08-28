@@ -11,6 +11,7 @@ var speed = NpcManager.get_speed("BasicEnemy")
 var velocity = Vector2()
 
 func take_damage(damage):
+	print ("OUCH!!!!!!!")
 	health -= damage
 	AnimPlayer.play("hit")
 	
