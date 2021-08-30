@@ -11,6 +11,22 @@ var current_weapon = "empty"
 
 var item_data = {}
 
+var equipment_data = {
+	"Head": null,
+	"Hand": null,
+	"Chest": null,
+	"Legs": null,
+	"Feet": null,
+	"MainHand": 10004,
+	"OffHand": 10005,
+	"Accessory1": null,
+	"Accessory2": null,
+	"Accessory3": null,
+	"Accessory4": null,
+	"Accessory5": null,
+	
+}
+
 func _ready():
 	var item_data_file = File.new()
 	item_data_file.open("res://json_files/inv_data_file.json", File.READ)

@@ -4,7 +4,7 @@
 [ext_resource path="res://Images/x-button-clicked.png" type="Texture" id=2]
 [ext_resource path="res://Game/UI/Inventory.gd" type="Script" id=3]
 
-[sub_resource type="ExternalTexture" id=1]
+[sub_resource type="ExternalTexture" id=2]
 
 [node name="Inventory" type="Control"]
 anchor_right = 1.0
@@ -21,7 +21,7 @@ __meta__ = {
 [node name="Background" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
