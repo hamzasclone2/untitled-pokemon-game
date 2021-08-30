@@ -24,6 +24,13 @@ PlayerAttributes="*res://Game/Player/PlayerAttributes.gd"
 NpcManager="*res://Game/Enemies/NPCManager.gd"
 GameData="*res://Game/GameData.gd"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=1920
+window/size/test_height=1080
+
 [input]
 
 left={
