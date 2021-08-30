@@ -25,6 +25,9 @@
 script = ExtResource( 16 )
 
 [node name="DialoguePopup" parent="." instance=ExtResource( 1 )]
+visible = true
+margin_top = 824.84
+margin_bottom = 864.84
 
 [node name="TalkLabel" type="Label" parent="."]
 visible = false
@@ -33,9 +36,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -512.0
-margin_top = -38.0416
+margin_top = -90.0416
 margin_right = -1.0
-margin_bottom = -24.0416
+margin_bottom = -76.0416
 rect_scale = Vector2( 2, 2 )
 text = "Press Space to Talk"
 align = 1
