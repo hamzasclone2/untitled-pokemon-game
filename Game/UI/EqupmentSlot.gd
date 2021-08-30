@@ -1,5 +1,11 @@
 extends TextureRect
 
+onready var tool_tip = preload("res://Game/UI/Templates/ToolTip.tscn")
+
+func _ready():
+	connect("mouse_entered", self, "_on_Icon_mouse_entered")
+	connect("mouse_exited", self, "_on_Icon_mouse_exited")
+
 func get_drag_data(_pos):
 	var equipment_slot = get_parent().get_name()
 	if PlayerAttributes.equipment_data[equipment_slot] != null:
@@ -45,10 +51,26 @@ func drop_data(_pos, data):
 		PlayerAttributes.equipment_data[origin_slot] = data["target_item_id"]
 		
 	if data["origin_panel"] == "CharacterSheet" and data["target_item_id"] == null:
-		var default_texture = load("res://Images/scroll-background.png")
+		var default_texture = load("res://Images/scroll-background.png") # fix this later
 		data["origin_node"].texture = default_texture
 	else:
 		data["origin_node"].texture = data["target_texture"]
 		
 	PlayerAttributes.equipment_data[target_equipment_slot] = data["origin_item_id"]
 	texture = data["origin_texture"]
+
+func _on_Icon_mouse_entered():
+	var tool_tip_instance = tool_tip.instance()
+	tool_tip_instance.origin = "CharacterSheet"
+	tool_tip_instance.slot = get_parent().get_name()
+	
+	tool_tip_instance.rect_position = get_parent().get_global_transform_with_canvas().origin + Vector2(100,0)
+	
+	add_child(tool_tip_instance)
+	yield(get_tree().create_timer(0.35), "timeout")
+	if has_node("ToolTip") and get_node("ToolTip").valid:
+		get_node("ToolTip").show()
+
+
+func _on_Icon_mouse_exited():
+	get_node("ToolTip").free()

@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/UI/Templates/ToolTip.gd" type="Script" id=1]
+
+[sub_resource type="ExternalTexture" id=1]
+
+[node name="ToolTip" type="Popup"]
+margin_left = -1.0
+margin_right = -1621.0
+margin_bottom = -880.0
+rect_min_size = Vector2( 300, 200 )
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="N" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 1 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="M" type="MarginContainer" parent="N"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 15
+custom_constants/margin_top = 20
+custom_constants/margin_left = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="N/M"]
+margin_left = 15.0
+margin_top = 20.0
+margin_right = 285.0
+margin_bottom = 200.0
+mouse_filter = 2
+
+[node name="ItemName" type="Label" parent="N/M/V"]
+modulate = Color( 0.301961, 0.866667, 0.160784, 1 )
+margin_right = 270.0
+margin_bottom = 14.0
+text = "<ItemName>"
+align = 1
+valign = 1
+
+[node name="Stat1" type="HBoxContainer" parent="N/M/V"]
+margin_top = 18.0
+margin_right = 270.0
+margin_bottom = 32.0
+mouse_filter = 2
+
+[node name="Stat" type="Label" parent="N/M/V/Stat1"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_bottom = 14.0
+valign = 1
+
+[node name="Difference" type="Label" parent="N/M/V/Stat1"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+valign = 1
+
+[node name="Stat2" type="HBoxContainer" parent="N/M/V"]
+margin_top = 36.0
+margin_right = 270.0
+margin_bottom = 50.0
+mouse_filter = 2
+
+[node name="Stat" type="Label" parent="N/M/V/Stat2"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_bottom = 14.0
+valign = 1
+
+[node name="Difference" type="Label" parent="N/M/V/Stat2"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+valign = 1
+
+[node name="Stat3" type="HBoxContainer" parent="N/M/V"]
+margin_top = 54.0
+margin_right = 270.0
+margin_bottom = 68.0
+mouse_filter = 2
+
+[node name="Stat" type="Label" parent="N/M/V/Stat3"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_bottom = 14.0
+valign = 1
+
+[node name="Difference" type="Label" parent="N/M/V/Stat3"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+valign = 1
+
+[node name="Stat4" type="HBoxContainer" parent="N/M/V"]
+margin_top = 72.0
+margin_right = 270.0
+margin_bottom = 86.0
+mouse_filter = 2
+
+[node name="Stat" type="Label" parent="N/M/V/Stat4"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_bottom = 14.0
+valign = 1
+
+[node name="Difference" type="Label" parent="N/M/V/Stat4"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+valign = 1
+
+[node name="Stat5" type="HBoxContainer" parent="N/M/V"]
+margin_top = 90.0
+margin_right = 270.0
+margin_bottom = 104.0
+mouse_filter = 2
+
+[node name="Stat" type="Label" parent="N/M/V/Stat5"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_bottom = 14.0
+valign = 1
+
+[node name="Difference" type="Label" parent="N/M/V/Stat5"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+valign = 1
