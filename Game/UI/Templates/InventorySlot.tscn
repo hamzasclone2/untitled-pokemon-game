@@ -9,6 +9,9 @@ margin_bottom = 95.0
 rect_min_size = Vector2( 95, 95 )
 texture = ExtResource( 1 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icon" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -22,6 +25,19 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stack" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -57.3982
+margin_top = -24.0511
+margin_right = -25.3982
+margin_bottom = -9.0511
+rect_scale = Vector2( 1.5, 1.5 )
+align = 2
 
 [connection signal="mouse_entered" from="Icon" to="Icon" method="_on_Icon_mouse_entered"]
 [connection signal="mouse_exited" from="Icon" to="Icon" method="_on_Icon_mouse_exited"]

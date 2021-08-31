@@ -14,6 +14,8 @@ func get_drag_data(_pos):
 		data["origin_panel"] = "CharacterSheet"
 		data["origin_item_id"] = PlayerAttributes.equipment_data[equipment_slot]
 		data["origin_equipment_slot"] = equipment_slot
+		data["origin_stackable"] = false
+		data["origin_stack"] = 1
 		data["origin_texture"] = texture
 		
 		var drag_texture = TextureRect.new()
