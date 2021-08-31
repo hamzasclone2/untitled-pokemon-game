@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Images/scroll-background.png" type="Texture" id=1]
-[ext_resource path="res://Images/Icon_Items/Shoes_Outline.png" type="Texture" id=2]
-[ext_resource path="res://Images/Icon_Items/Helmet_Outline.png" type="Texture" id=3]
+[ext_resource path="res://Images/Icon_Items/Feet_Outline.png" type="Texture" id=2]
+[ext_resource path="res://Images/Icon_Items/Head_Outline.png" type="Texture" id=3]
 [ext_resource path="res://Images/Icon_Items/Pants_Outline.png" type="Texture" id=4]
 [ext_resource path="res://Images/Icon_Items/Ring_Outline.png" type="Texture" id=5]
 [ext_resource path="res://Images/Icon_Items/Chest_Outline.png" type="Texture" id=6]
 [ext_resource path="res://Images/Icon_Items/Hand_Outline.png" type="Texture" id=7]
-[ext_resource path="res://Images/Icon_Items/Sword-Outline.png" type="Texture" id=8]
-[ext_resource path="res://Images/Icon_Items/Shield_Outline.png" type="Texture" id=9]
+[ext_resource path="res://Images/Icon_Items/MainHand_Outline.png" type="Texture" id=8]
+[ext_resource path="res://Images/Icon_Items/OffHand_Outline.png" type="Texture" id=9]
 [ext_resource path="res://Images/Icon_Items/WarriorSilhouette_Outline.png" type="Texture" id=10]
 [ext_resource path="res://Game/UI/EqupmentSlot.gd" type="Script" id=11]
 

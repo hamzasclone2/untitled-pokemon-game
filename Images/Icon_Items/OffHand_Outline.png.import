@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shoes_Outline.png-285019b4f78a13fac06f8ed60f13b735.stex"
+path="res://.import/OffHand_Outline.png-03fc954eb558eee678d44b18bd491f28.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Icon_Items/Shoes_Outline.png"
-dest_files=[ "res://.import/Shoes_Outline.png-285019b4f78a13fac06f8ed60f13b735.stex" ]
+source_file="res://Images/Icon_Items/OffHand_Outline.png"
+dest_files=[ "res://.import/OffHand_Outline.png-03fc954eb558eee678d44b18bd491f28.stex" ]
 
 [params]
 

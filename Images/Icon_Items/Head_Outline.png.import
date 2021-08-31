@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Helmet_Outline.png-d7885aa76cd5294526428cec8ffe3373.stex"
+path="res://.import/Head_Outline.png-f102efcfdf4130753217425208c1c2a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Icon_Items/Helmet_Outline.png"
-dest_files=[ "res://.import/Helmet_Outline.png-d7885aa76cd5294526428cec8ffe3373.stex" ]
+source_file="res://Images/Icon_Items/Head_Outline.png"
+dest_files=[ "res://.import/Head_Outline.png-f102efcfdf4130753217425208c1c2a4.stex" ]
 
 [params]
 

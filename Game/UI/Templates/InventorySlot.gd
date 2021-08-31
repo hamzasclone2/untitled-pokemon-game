@@ -55,7 +55,7 @@ func drop_data(_pos, data):
 		PlayerAttributes.equipment_data[origin_slot] = data["target_item_id"]
 		
 	if data["origin_panel"] == "CharacterSheet" and data["target_item_id"] == null:
-		var default_texture = load("res://Images/scroll-background.png")
+		var default_texture = load("res://Images/Icon_Items/" + origin_slot + "_Outline.png")
 		data["origin_node"].texture = default_texture
 	else:
 		data["origin_node"].texture = data["target_texture"]
