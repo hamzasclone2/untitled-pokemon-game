@@ -15,3 +15,22 @@ func _ready():
 			if item_stack != null and item_stack > 1:
 				inv_slot_new.get_node("Stack").set_text(str(item_stack))
 		gridcontainer.add_child(inv_slot_new, true)
+		
+		
+
+func add(itemKey, amount):
+	var emptySlot
+	for i in PlayerAttributes.item_data.keys():
+		if PlayerAttributes.item_data[i]["Item"] == null:
+			emptySlot = i
+			break
+	var inv_slot = gridcontainer.get_node(emptySlot)
+	PlayerAttributes.item_data[emptySlot]["Item"] = itemKey
+	PlayerAttributes.item_data[emptySlot]["Stack"] = amount
+	var item_name = GameData.item_data[str(PlayerAttributes.item_data[emptySlot]["Item"])]["Name"]
+	var icon_texture = load("res://Images/Icon_Items/" + item_name + ".png")
+	inv_slot.get_node("Icon").set_texture(icon_texture)
+	var item_stack = PlayerAttributes.item_data[emptySlot]["Stack"]
+	if item_stack != null and item_stack > 1:
+		inv_slot.get_node("Stack").set_text(str(item_stack))
+	
