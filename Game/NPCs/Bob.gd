@@ -58,6 +58,7 @@ func talk(answer = ""):
 						dialoguePopup.dialogue = "Thanks, bud!"
 						dialoguePopup.answers = "[Y]eah no problem!"
 						dialoguePopup.open()
+						PlayerAttributes.addInventoryItem(10009, 1)
 					else:
 						dialogue_state = 3
 						dialoguePopup.dialogue = "Oh...well you said you would..."

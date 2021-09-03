@@ -1,5 +1,6 @@
 extends Node
 
+
 var health = 10
 var armor = 10
 var swordDamage = 1
@@ -26,6 +27,11 @@ var equipment_data = {
 	"Accessory5": null,
 	
 }
+
+func addInventoryItem(itemKey, amount):
+	var Inventory = get_tree().root.get_node("Test/UserInterface/Control/Inventory")
+	print(Inventory)
+	Inventory.add(itemKey, amount)
 
 func _ready():
 	var item_data_file = File.new()
