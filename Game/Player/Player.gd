@@ -10,7 +10,9 @@ onready var AnimPlayer = $AnimationPlayer
 var weapons = ["empty", "sword", "spear", "bow"]
 var weaponsIndex = 0
 var isAbleToTalk = false
+var isAbleToOpen = false
 var npc
+var treasureChest
 onready var talkLabel = get_tree().root.get_node("Test/UserInterface/TalkLabel")
 
 
@@ -96,6 +98,11 @@ func _physics_process(delta):
 		if(Input.is_action_pressed("ui_accept")):
 			npc.talk()
 			talkLabel.visible = false
+			
+	if(isAbleToOpen):
+		if(Input.is_action_just_pressed("ui_accept")):
+			treasureChest.open()
+			isAbleToOpen = false
 	
 	
 
@@ -123,6 +130,9 @@ func _on_Area2D_body_entered(body):
 	if(body.is_in_group("NPC")):
 		isAbleToTalk = true
 		npc = body
+	elif(body.is_in_group("TreasureChest")):
+		isAbleToOpen = true
+		treasureChest = body
 
 
 func _on_Area2D_body_exited(body):

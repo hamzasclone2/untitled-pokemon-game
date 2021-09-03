@@ -30,7 +30,6 @@ var equipment_data = {
 
 func addInventoryItem(itemKey, amount):
 	var Inventory = get_tree().root.get_node("Test/UserInterface/Control/Inventory")
-	print(Inventory)
 	Inventory.add(itemKey, amount)
 
 func _ready():
