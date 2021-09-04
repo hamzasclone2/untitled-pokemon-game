@@ -94,10 +94,11 @@ func _physics_process(delta):
 		spear.visible = false
 		
 	if(isAbleToTalk):
-		talkLabel.visible = true
-		if(Input.is_action_pressed("ui_accept")):
-			npc.talk()
+		if(Input.is_action_just_pressed("ui_accept")):
 			talkLabel.visible = false
+			npc.talk()
+			talkLabel.visible = true
+			
 			
 	if(isAbleToOpen):
 		if(Input.is_action_just_pressed("ui_accept")):
@@ -128,9 +129,13 @@ func takeDamage(damage):
 
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("NPC")):
+		talkLabel.text = "Press Space to Talk"
+		talkLabel.visible = true
 		isAbleToTalk = true
 		npc = body
 	elif(body.is_in_group("TreasureChest")):
+		talkLabel.text = "Press Space to Open"
+		talkLabel.visible = true
 		isAbleToOpen = true
 		treasureChest = body
 
