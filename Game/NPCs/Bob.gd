@@ -27,12 +27,12 @@ func talk(answer = ""):
 					match answer:
 						"Y":
 							dialogue_state = 2
-							dialoguePopup.dialogue = "Thank you!"
+							dialoguePopup.dialogue = "Thank you! I'll give you a cool sword once you find it."
 							dialoguePopup.answers = "[Y]up!"
 							dialoguePopup.open()
 						"N":
 							dialogue_state = 3
-							dialoguePopup.dialogue = "Ah, well...a bit rude don't you think?"
+							dialoguePopup.dialogue = "I'll give you a cool sword if you help me!"
 							dialoguePopup.answers = "[Y]eah..."
 							dialoguePopup.open()
 				2:
@@ -55,10 +55,10 @@ func talk(answer = ""):
 				1:
 					if slingshot_found and answer == "Y":
 						dialogue_state = 2
-						dialoguePopup.dialogue = "Thanks, bud!"
+						dialoguePopup.dialogue = "Thanks, here's the sword!"
 						dialoguePopup.answers = "[Y]eah no problem!"
 						dialoguePopup.open()
-						PlayerAttributes.addInventoryItem(10009, 1)
+						PlayerAttributes.addInventoryItem(10003, 1)
 					else:
 						dialogue_state = 3
 						dialoguePopup.dialogue = "Oh...well you said you would..."
