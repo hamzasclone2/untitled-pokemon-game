@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ring_Outline.png-a47483b5980d82fe8e92a87eafa39a9d.stex"
+path="res://.import/Accessory_Outline.png-bc887cb6190334f1f38b386469f1cb62.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Icon_Items/Ring_Outline.png"
-dest_files=[ "res://.import/Ring_Outline.png-a47483b5980d82fe8e92a87eafa39a9d.stex" ]
+source_file="res://Images/Icon_Items/Accessory_Outline.png"
+dest_files=[ "res://.import/Accessory_Outline.png-bc887cb6190334f1f38b386469f1cb62.stex" ]
 
 [params]
 

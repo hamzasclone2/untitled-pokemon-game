@@ -94,7 +94,7 @@
     "Name": "Loaf of Bread",
     "Category": "Food",
     "Type": "Food",
-    "EquipmentSlot": null,
+    "EquipmentSlot": "Accessory",
     "Stackable": true,
     "Attack": null,
     "Defense": null,

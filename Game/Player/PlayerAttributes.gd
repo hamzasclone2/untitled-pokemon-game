@@ -20,11 +20,7 @@ var equipment_data = {
 	"Feet": null,
 	"MainHand": null,
 	"OffHand": null,
-	"Accessory1": null,
-	"Accessory2": null,
-	"Accessory3": null,
-	"Accessory4": null,
-	"Accessory5": null,
+	"Accessory": null,
 	
 }
 

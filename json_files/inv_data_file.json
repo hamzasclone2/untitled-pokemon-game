@@ -1,15 +1,15 @@
 {
 	"Inv1": {
-		"Item": null,
-		"Stack": null
+		"Item": 10001,
+		"Stack": 1
 	},
 	"Inv2": {
-		"Item": null,
-		"Stack": null
+		"Item": 10009,
+		"Stack": 1
 	},
 	"Inv3": {
-		"Item": null,
-		"Stack": null
+		"Item": 10008,
+		"Stack": 1
 	},
 	"Inv4": {
 		"Item": null,
