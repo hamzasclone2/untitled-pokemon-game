@@ -48,7 +48,7 @@ func drop_data(_pos, data):
 	var origin_slot = data["origin_node"].get_parent().get_name()
 	
 	if data["origin_panel"] == "Inventory":
-		PlayerAttributes.item_data[origin_slot]["Item"] = data["target_item_id"]
+		PlayerAttributes.inv_data[origin_slot]["Item"] = data["target_item_id"]
 	else:
 		PlayerAttributes.equipment_data[origin_slot] = data["target_item_id"]
 		

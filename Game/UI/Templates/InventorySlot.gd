@@ -7,14 +7,14 @@ func get_drag_data(_pos):
 	if get_tree().get_nodes_in_group("Splitter"):
 		return
 	var inv_slot = get_parent().get_name()
-	if PlayerAttributes.item_data[inv_slot]["Item"] != null:
+	if PlayerAttributes.inv_data[inv_slot]["Item"] != null:
 		var data = {}
 		data["origin_node"] = self
 		data["origin_panel"] = "Inventory"
-		data["origin_item_id"] = PlayerAttributes.item_data[inv_slot]["Item"]
-		data["origin_equipment_slot"] = GameData.item_data[str(PlayerAttributes.item_data[inv_slot]["Item"])]["EquipmentSlot"]
-		data["origin_stackable"] = GameData.item_data[str(PlayerAttributes.item_data[inv_slot]["Item"])]["Stackable"]
-		data["origin_stack"] = PlayerAttributes.item_data[inv_slot]["Stack"]
+		data["origin_item_id"] = PlayerAttributes.inv_data[inv_slot]["Item"]
+		data["origin_equipment_slot"] = GameData.item_data[str(PlayerAttributes.inv_data[inv_slot]["Item"])]["EquipmentSlot"]
+		data["origin_stackable"] = GameData.item_data[str(PlayerAttributes.inv_data[inv_slot]["Item"])]["Stackable"]
+		data["origin_stack"] = PlayerAttributes.inv_data[inv_slot]["Stack"]
 		data["origin_texture"] = texture
 		
 		var drag_texture = TextureRect.new()
@@ -31,7 +31,7 @@ func get_drag_data(_pos):
 	
 func can_drop_data(_pos, data):
 	var target_inv_slot = get_parent().get_name()
-	if PlayerAttributes.item_data[target_inv_slot]["Item"] == null:
+	if PlayerAttributes.inv_data[target_inv_slot]["Item"] == null:
 		data["target_item_id"] = null
 		data["target_texture"] = null
 		data["target_stack"] = null
@@ -40,11 +40,11 @@ func can_drop_data(_pos, data):
 		if Input.is_action_pressed("secondary"):
 			return false
 		else:
-			data["target_item_id"] = PlayerAttributes.item_data[target_inv_slot]["Item"]
+			data["target_item_id"] = PlayerAttributes.inv_data[target_inv_slot]["Item"]
 			data["target_texture"] = texture
-			data["target_stack"] = PlayerAttributes.item_data[target_inv_slot]["Stack"]
+			data["target_stack"] = PlayerAttributes.inv_data[target_inv_slot]["Stack"]
 			if data["origin_panel"] == "CharacterSheet":
-				var target_equipment_slot = GameData.item_data[str(PlayerAttributes.item_data[target_inv_slot]["Item"])]["EquipmentSlot"]
+				var target_equipment_slot = GameData.item_data[str(PlayerAttributes.inv_data[target_inv_slot]["Item"])]["EquipmentSlot"]
 				if target_equipment_slot == data["origin_equipment_slot"]:
 					return true
 				else:
@@ -70,11 +70,11 @@ func drop_data(_pos, data):
 	else:
 	
 		if data["target_item_id"] == data["origin_item_id"] and data["origin_stackable"] == true:
-			PlayerAttributes.item_data[origin_slot]["Item"] = null
-			PlayerAttributes.item_data[origin_slot]["Stack"] = null
+			PlayerAttributes.inv_data[origin_slot]["Item"] = null
+			PlayerAttributes.inv_data[origin_slot]["Stack"] = null
 		elif data["origin_panel"] == "Inventory":
-			PlayerAttributes.item_data[origin_slot]["Item"] = data["target_item_id"]
-			PlayerAttributes.item_data[origin_slot]["Stack"] = data["target_stack"]
+			PlayerAttributes.inv_data[origin_slot]["Item"] = data["target_item_id"]
+			PlayerAttributes.inv_data[origin_slot]["Stack"] = data["target_stack"]
 		else:
 			PlayerAttributes.equipment_data[origin_slot] = data["target_item_id"]
 			
@@ -93,12 +93,12 @@ func drop_data(_pos, data):
 		
 		if data["target_item_id"] == data["origin_item_id"] and data["origin_stackable"] == true:
 			var new_stack = data["target_stack"] + data["origin_stack"]
-			PlayerAttributes.item_data[target_inv_slot]["Stack"] = new_stack
+			PlayerAttributes.inv_data[target_inv_slot]["Stack"] = new_stack
 			get_node("../Stack").set_text(str(new_stack))
 		else:
-			PlayerAttributes.item_data[target_inv_slot]["Item"] = data["origin_item_id"]
+			PlayerAttributes.inv_data[target_inv_slot]["Item"] = data["origin_item_id"]
 			texture = data["origin_texture"]
-			PlayerAttributes.item_data[target_inv_slot]["Stack"] = data["origin_stack"]
+			PlayerAttributes.inv_data[target_inv_slot]["Stack"] = data["origin_stack"]
 			if data["origin_stack"] != null and data["origin_stack"] > 1:
 				get_node("../Stack").set_text(str(data["origin_stack"]))
 			else:
@@ -108,9 +108,9 @@ func SplitStack(split_amount, data):
 	var target_inv_slot = get_parent().get_name()
 	var origin_slot = data["origin_node"].get_parent().get_name()
 	
-	PlayerAttributes.item_data[origin_slot]["Stack"] = data["origin_stack"] - split_amount
-	PlayerAttributes.item_data[target_inv_slot]["Item"] = data["origin_item_id"]
-	PlayerAttributes.item_data[target_inv_slot]["Stack"] = split_amount
+	PlayerAttributes.inv_data[origin_slot]["Stack"] = data["origin_stack"] - split_amount
+	PlayerAttributes.inv_data[target_inv_slot]["Item"] = data["origin_item_id"]
+	PlayerAttributes.inv_data[target_inv_slot]["Stack"] = split_amount
 	texture = data["origin_texture"]
 	
 	if data["origin_stack"] - split_amount > 1:
