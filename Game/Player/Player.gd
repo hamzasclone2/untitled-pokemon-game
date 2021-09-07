@@ -122,10 +122,8 @@ func knockback(delta):
 
 func takeDamage(damage):
 	PlayerAttributes.health -= damage
-	if(PlayerAttributes.health < 0):
-		pass
-		#Eventually this is where you would die
-		#queue_free()
+	if(PlayerAttributes.health <= 0):
+		queue_free()
 
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group("NPC")):

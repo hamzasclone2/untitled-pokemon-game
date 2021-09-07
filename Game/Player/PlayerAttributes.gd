@@ -1,8 +1,10 @@
 extends Node
 
-
+var experience = 0
 var health = 10
+var maxHealth = 10
 var armor = 10
+var maxArmor = 10
 var swordDamage = 1
 var spearDamage = 1
 var speed = 400
