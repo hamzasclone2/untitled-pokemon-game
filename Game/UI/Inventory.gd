@@ -37,5 +37,4 @@ func add(itemKey, amount):
 
 
 func _on_Button_button_up():
-	print("hello!")
 	get_parent().visible = false
