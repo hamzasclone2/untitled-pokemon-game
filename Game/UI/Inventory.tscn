@@ -109,3 +109,5 @@ size_flags_vertical = 3
 custom_constants/vseparation = 12
 custom_constants/hseparation = 12
 columns = 5
+
+[connection signal="button_up" from="Background/M/V/Header/Exit/Button" to="." method="_on_Button_button_up"]

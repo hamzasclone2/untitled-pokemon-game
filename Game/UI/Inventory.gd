@@ -34,3 +34,8 @@ func add(itemKey, amount):
 	if item_stack != null and item_stack > 1:
 		inv_slot.get_node("Stack").set_text(str(item_stack))
 	
+
+
+func _on_Button_button_up():
+	print("hello!")
+	get_parent().visible = false
