@@ -33,6 +33,16 @@ __meta__ = {
 
 [node name="UpdateTween" type="Tween" parent="."]
 
+[node name="ShakeTween" type="Tween" parent="."]
+
 [node name="PulseTween" type="Tween" parent="."]
 repeat = true
 playback/repeat = true
+
+[node name="Frequency" type="Timer" parent="."]
+
+[node name="Duration" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Frequency" to="." method="_on_Frequency_timeout"]
+[connection signal="timeout" from="Duration" to="." method="_on_Duration_timeout"]

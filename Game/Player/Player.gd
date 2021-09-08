@@ -125,6 +125,7 @@ func knockback(delta):
 func takeDamage(damage):
 	PlayerAttributes.health -= damage
 	healthBar._on_health_updated(PlayerAttributes.health)
+	healthBar.start()
 	if(PlayerAttributes.health <= 0):
 		queue_free()
 
