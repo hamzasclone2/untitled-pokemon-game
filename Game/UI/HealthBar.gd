@@ -3,12 +3,15 @@ extends Control
 onready var health_over = $HealthOver
 onready var health_under = $HealthUnder
 onready var update_tween = $UpdateTween
+onready var pulse_tween = $PulseTween
 
 export (Color) var healthy_color = Color.green
 export (Color) var caution_color = Color.yellow
 export (Color) var danger_color = Color.red
+export (Color) var pulse_color = Color.darkred
 export (float, 0, 1, 0.05) var caution_zone = 0.5
 export (float, 0, 1, 0.05) var danger_zone = 0.2
+export (bool) var willPulse = false
 
 func _ready():
 	if(get_parent().is_in_group("enemy")):
@@ -17,6 +20,7 @@ func _ready():
 		health_under.value = NpcManager.get_health(get_parent().get_name())
 		health_under.max_value = NpcManager.get_maxHealth(get_parent().get_name())
 	else:
+		willPulse = true
 		health_over.value = PlayerAttributes.health
 		health_over.max_value = PlayerAttributes.maxHealth
 		health_under.value = PlayerAttributes.health
@@ -30,6 +34,9 @@ func _on_health_updated(health):
 	
 func _assign_color(health):
 	if health < health_over.max_value * danger_zone:
+		if willPulse:
+			pulse_tween.interpolate_property(health_over, "tint_progress", pulse_color, danger_color, 1.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+			pulse_tween.start()
 		health_over.tint_progress = danger_color
 	elif health < health_over.max_value * caution_zone:
 		health_over.tint_progress = caution_color
