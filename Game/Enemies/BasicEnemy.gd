@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 onready var health = NpcManager.get_health("BasicEnemy")
-onready var maxHealth = 20
 onready var sprite = $Sprite
 onready var AnimPlayer = $AnimationPlayer
 onready var ThreatArea = $Area2D/ThreatArea

@@ -103,6 +103,8 @@ func drop_data(_pos, data):
 				get_node("../Stack").set_text(str(data["origin_stack"]))
 			else:
 				get_node("../Stack").set_text("")
+				
+		PlayerAttributes.checkEquipment()
 
 func SplitStack(split_amount, data):
 	var target_inv_slot = get_parent().get_name()

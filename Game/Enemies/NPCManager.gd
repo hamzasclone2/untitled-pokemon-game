@@ -1,8 +1,8 @@
 extends Node
 
 var BasicEnemy = {
-	health = 5,
-	maxHealth =  5,
+	health = 100,
+	maxHealth =  100,
 	speed = 100
 }
 
