@@ -1,12 +1,10 @@
 extends Node
 
 var experience = 0
-var health = 10
-var maxHealth = 10
-var armor = 10
-var maxArmor = 10
+var health = 100
+var maxHealth = 100
+var armor = 0
 var damage = 0
-var spearDamage = 1
 var speed = 400
 var threat_level = 0.2
 
@@ -39,6 +37,7 @@ func _ready():
 	inv_data = inv_data_json.result
 	
 func checkEquipment():
+	armor = 0
 	if equipment_data["MainHand"] != null:
 		current_weapon = GameData.item_data[str(equipment_data["MainHand"])]
 		damage = current_weapon["Attack"]
@@ -48,3 +47,15 @@ func checkEquipment():
 	else:
 		damage = 0
 		current_weapon_type = null
+		
+	if equipment_data["Head"] != null:
+		armor = GameData.item_data[str(equipment_data["Head"])]["Defense"] + armor
+	if equipment_data["Hand"] != null:
+		armor = GameData.item_data[str(equipment_data["Hand"])]["Defense"] + armor
+	if equipment_data["Chest"] != null:
+		armor = GameData.item_data[str(equipment_data["Chest"])]["Defense"] + armor
+	if equipment_data["Legs"] != null:
+		armor = GameData.item_data[str(equipment_data["Legs"])]["Defense"] + armor
+	if equipment_data["Feet"] != null:
+		armor = GameData.item_data[str(equipment_data["Feet"])]["Defense"] + armor
+	

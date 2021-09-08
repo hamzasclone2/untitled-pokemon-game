@@ -8,7 +8,7 @@ onready var expLabel = get_node("Background/M/Main/Middle/V/expLabel")
 
 func _process(delta):
 	healthLabel.text = str(PlayerAttributes.health) + "/" + str(PlayerAttributes.maxHealth) + " HP"
-	armorLabel.text = str(PlayerAttributes.armor) + "/" + str(PlayerAttributes.maxArmor) + " ARMOR"
+	armorLabel.text = str(PlayerAttributes.armor) + " ARMOR"
 	damageLabel.text = str(PlayerAttributes.damage) + " DAMAGE"
 	speedLabel.text = str(PlayerAttributes.speed) + " SPEED"
 	expLabel.text = str(PlayerAttributes.experience) + " EXP"
