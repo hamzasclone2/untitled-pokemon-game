@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Enemies/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Images/Enemy.png" type="Texture" id=2]
+[ext_resource path="res://Game/UI/HealthBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.95, 31.6179 )
@@ -43,5 +44,12 @@ anims/hit = SubResource( 2 )
 
 [node name="ThreatArea" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 3 )]
+margin_left = -34.7963
+margin_top = -44.0566
+margin_right = -34.7963
+margin_bottom = -44.0566
+rect_scale = Vector2( 0.1, 0.1 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

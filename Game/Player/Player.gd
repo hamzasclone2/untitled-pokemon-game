@@ -7,6 +7,8 @@ onready var bow = $Bow
 onready var spear = $Spear
 onready var AnimPlayer = $AnimationPlayer
 
+onready var healthBar = get_parent().get_node("UserInterface/HealthBar")
+
 var weapons = ["empty", "sword", "spear", "bow"]
 var weaponsIndex = 0
 var isAbleToTalk = false
@@ -122,6 +124,7 @@ func knockback(delta):
 
 func takeDamage(damage):
 	PlayerAttributes.health -= damage
+	healthBar._on_health_updated(PlayerAttributes.health)
 	if(PlayerAttributes.health <= 0):
 		queue_free()
 

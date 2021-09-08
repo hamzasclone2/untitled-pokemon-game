@@ -1,17 +1,21 @@
 extends KinematicBody2D
 
 onready var health = NpcManager.get_health("BasicEnemy")
+onready var maxHealth = 20
 onready var sprite = $Sprite
 onready var AnimPlayer = $AnimationPlayer
 onready var ThreatArea = $Area2D/ThreatArea
 export var agro = 0
 var attack = 1
 
+onready var healthBar = $HealthBar
+
 var speed = NpcManager.get_speed("BasicEnemy")
 var velocity = Vector2()
 
 func take_damage(damage):
 	health -= damage
+	healthBar._on_health_updated(health)
 	AnimPlayer.stop(true)
 	AnimPlayer.play("hit")
 	
