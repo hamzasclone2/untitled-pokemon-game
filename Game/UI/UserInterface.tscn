@@ -12,7 +12,6 @@ pause_mode = 2
 script = ExtResource( 16 )
 
 [node name="DialoguePopup" parent="." instance=ExtResource( 1 )]
-visible = true
 margin_top = 824.84
 margin_bottom = 864.84
 
@@ -33,6 +32,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HealthBar" parent="." instance=ExtResource( 5 )]
+
 [node name="Control" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -47,5 +48,3 @@ __meta__ = {
 
 [node name="Pause" parent="." instance=ExtResource( 4 )]
 visible = false
-
-[node name="HealthBar" parent="." instance=ExtResource( 5 )]
