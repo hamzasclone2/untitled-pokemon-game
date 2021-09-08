@@ -27,6 +27,7 @@ func _process(delta):
 func _ready():
 	ThreatArea.scale.x = agro * PlayerAttributes.threat_level
 	ThreatArea.scale.y = agro * PlayerAttributes.threat_level
+	healthBar._on_health_updated(health)
 
 
 func _on_Area2D_body_entered(body):

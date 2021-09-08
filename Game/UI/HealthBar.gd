@@ -10,20 +10,17 @@ export (Color) var danger_color = Color.red
 export (float, 0, 1, 0.05) var caution_zone = 0.5
 export (float, 0, 1, 0.05) var danger_zone = 0.2
 
-var character
-
 func _ready():
 	if(get_parent().is_in_group("enemy")):
-		health_over.value = NpcManager.get_health("BasicEnemy")
-		health_over.max_value = 20
-		health_under.value = NpcManager.get_health("BasicEnemy")
-		health_under.max_value = 20
+		health_over.value = NpcManager.get_health(get_parent().get_name())
+		health_over.max_value = NpcManager.get_maxHealth(get_parent().get_name())
+		health_under.value = NpcManager.get_health(get_parent().get_name())
+		health_under.max_value = NpcManager.get_maxHealth(get_parent().get_name())
 	else:
-		character = PlayerAttributes
-		health_over.value = character.health
-		health_over.max_value = character.maxHealth
-		health_under.value = character.health
-		health_under.max_value = character.maxHealth
+		health_over.value = PlayerAttributes.health
+		health_over.max_value = PlayerAttributes.maxHealth
+		health_under.value = PlayerAttributes.health
+		health_under.max_value = PlayerAttributes.maxHealth
 
 func _on_health_updated(health):
 	health_over.value = health

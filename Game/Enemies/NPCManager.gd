@@ -1,7 +1,8 @@
 extends Node
 
 var BasicEnemy = {
-	health = 20,
+	health = 5,
+	maxHealth =  5,
 	speed = 100
 }
 
@@ -18,6 +19,9 @@ var NPCs = {
 
 func get_health(name: String) -> float:
 	return NPCs.get(name).health
+	
+func get_maxHealth(name: String) -> float:
+	return NPCs.get(name).maxHealth
 		
 func get_speed(name: String) -> float:
 	return NPCs.get(name).speed
