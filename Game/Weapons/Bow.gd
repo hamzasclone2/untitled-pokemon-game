@@ -18,5 +18,4 @@ func shoot():
 	dir1 = dir1 / dirmax
 	dir2 = dir2 / dirmax
 	dir = Vector2(dir1, dir2)
-	#print (dir)
 	arrow.set_dir(dir)

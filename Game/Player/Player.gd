@@ -20,8 +20,13 @@ onready var talkLabel = get_tree().root.get_node("Test/UserInterface/TalkLabel")
 func get_input():
 	if Input.is_action_just_pressed("click") and PlayerAttributes.equipment_data["MainHand"] != null:
 		if PlayerAttributes.current_weapon_type == "Sword":
+			sword.visible = true
+			bow.visible = false
 			sword.attack()
-		if PlayerAttributes.current_weapon_type == "bow":
+	elif Input.is_action_just_pressed("rightClick") and PlayerAttributes.equipment_data["OffHand"] != null:
+		if PlayerAttributes.current_off_weapon_type == "Bow":
+			bow.visible = true
+			sword.visible = false
 			bow.shoot()
 	velocity = Vector2()
 	if Input.is_action_pressed('left'):
@@ -39,8 +44,8 @@ func get_input():
 func _physics_process(delta):
 	if(PlayerAttributes.equipment_data["MainHand"] == null):
 		sword.visible = false
-	elif(PlayerAttributes.current_weapon_type == "Sword"):
-		sword.visible = true
+	if(PlayerAttributes.equipment_data["OffHand"] ==  null):
+		bow.visible = false
 	get_input()
 	move_and_slide(velocity)
 	knockback(delta)

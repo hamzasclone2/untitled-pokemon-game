@@ -240,32 +240,38 @@ __meta__ = {
 }
 
 [node name="healthLabel" type="Label" parent="Background/M/Main/Middle/V"]
-margin_right = 69.0
+margin_right = 152.0
 margin_bottom = 14.0
 text = "0/0 HP"
 
 [node name="armorLabel" type="Label" parent="Background/M/Main/Middle/V"]
 margin_top = 18.0
-margin_right = 69.0
+margin_right = 152.0
 margin_bottom = 32.0
 text = "0/0 Armor"
 
 [node name="damageLabel" type="Label" parent="Background/M/Main/Middle/V"]
 margin_top = 36.0
-margin_right = 69.0
+margin_right = 152.0
 margin_bottom = 50.0
-text = "0 DAMAGE"
+text = "0 MAIN HAND DAMAGE"
+
+[node name="offDamageLabel" type="Label" parent="Background/M/Main/Middle/V"]
+margin_top = 54.0
+margin_right = 152.0
+margin_bottom = 68.0
+text = "0 OFF HAND DAMAGE"
 
 [node name="speedLabel" type="Label" parent="Background/M/Main/Middle/V"]
-margin_top = 54.0
-margin_right = 69.0
-margin_bottom = 68.0
+margin_top = 72.0
+margin_right = 152.0
+margin_bottom = 86.0
 text = "0 SPEED"
 
 [node name="expLabel" type="Label" parent="Background/M/Main/Middle/V"]
-margin_top = 72.0
-margin_right = 69.0
-margin_bottom = 86.0
+margin_top = 90.0
+margin_right = 152.0
+margin_bottom = 104.0
 text = "0 EXP"
 
 [node name="MiddleEquip" type="HBoxContainer" parent="Background/M/Main/Middle"]

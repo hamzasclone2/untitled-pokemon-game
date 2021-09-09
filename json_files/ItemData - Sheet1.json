@@ -128,5 +128,18 @@
     "PotionHealth": null,
     "PotionMana": null,
     "FoodSatiation": null
-  }
+  },
+  "10011": {
+    "Name": "Old Bow",
+    "Category": "Weapon",
+    "Type": "Bow",
+    "EquipmentSlot": "OffHand",
+    "Stackable": false,
+    "Attack": 20,
+    "Defense": null,
+    "Block": null,
+    "PotionHealth": null,
+    "PotionMana": null,
+    "FoodSatiation": null
+  },
 }

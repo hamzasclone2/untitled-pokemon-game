@@ -16,7 +16,7 @@ func set_dir(dir: Vector2):
 func _physics_process(_delta):
 	var speed_x = loc_dir.x
 	var speed_y = loc_dir.y
-	var motion = Vector2(speed_x, speed_y) * 3
+	var motion = Vector2(speed_x, speed_y) * 25
 	set_position(get_position() + motion)
 	dir_hyp = dir_hyp + sqrt((speed_x * speed_x) + (speed_y * speed_y))
 	if dir_hyp > arrow_range:
@@ -27,7 +27,6 @@ func _physics_process(_delta):
 
 func _on_Pickup_body_entered(body):
 	if on_floor == true && body.name == "Player":
-		print ("Picked Up")
 		queue_free()
 
 
