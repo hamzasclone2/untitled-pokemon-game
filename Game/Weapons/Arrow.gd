@@ -27,13 +27,13 @@ func _physics_process(_delta):
 
 func _on_Pickup_body_entered(body):
 	if on_floor == true && body.name == "Player":
+		PlayerAttributes.numArrows += 1
 		queue_free()
 
 
 func _on_ArrowTip_body_entered(body):
-	print (body.name)
 	if body.name != "Player" and body.is_in_group("enemy"):
-		body.take_damage(100)
+		body.take_damage(PlayerAttributes.off_damage)
 		queue_free()
 	elif body.name != "Player":
 		set_physics_process(false)

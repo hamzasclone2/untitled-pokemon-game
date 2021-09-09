@@ -24,10 +24,11 @@ func get_input():
 			bow.visible = false
 			sword.attack()
 	elif Input.is_action_just_pressed("rightClick") and PlayerAttributes.equipment_data["OffHand"] != null:
-		if PlayerAttributes.current_off_weapon_type == "Bow":
+		if PlayerAttributes.current_off_weapon_type == "Bow" and PlayerAttributes.numArrows > 0:
 			bow.visible = true
 			sword.visible = false
 			bow.shoot()
+			PlayerAttributes.numArrows -= 1
 	velocity = Vector2()
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1

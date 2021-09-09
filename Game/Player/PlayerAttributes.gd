@@ -15,6 +15,8 @@ var current_off_weapon_type = null
 var current_off_weapon = null
 var off_damage = 0
 
+var numArrows = 10
+
 var inv_data = {}
 
 var equipment_data = {
