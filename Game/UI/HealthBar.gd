@@ -19,10 +19,10 @@ var amplitude = 0
 
 func _ready():
 	if(get_parent().is_in_group("enemy")):
-		health_over.value = NpcManager.get_health(get_parent().get_name())
-		health_over.max_value = NpcManager.get_maxHealth(get_parent().get_name())
-		health_under.value = NpcManager.get_health(get_parent().get_name())
-		health_under.max_value = NpcManager.get_maxHealth(get_parent().get_name())
+		health_over.value = NpcManager.get_health(get_parent().enemyType)
+		health_over.max_value = NpcManager.get_maxHealth(get_parent().enemyType)
+		health_under.value = NpcManager.get_health(get_parent().enemyType)
+		health_under.max_value = NpcManager.get_maxHealth(get_parent().enemyType)
 	else:
 		willPulse = true
 		health_over.value = PlayerAttributes.health

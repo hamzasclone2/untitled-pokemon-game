@@ -6,7 +6,6 @@ var maxHealth = 100
 var armor = 0
 var damage = 0
 var speed = 400
-var threat_level = 0.2
 
 var current_weapon_type = null
 var current_weapon = null
