@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/UI/DialoguePopup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/UI/CharacterSheet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/UI/Inventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/UI/Pause.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/UI/HealthBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Themes/theme1.theme" type="Theme" id=6]
 [ext_resource path="res://Game/UI/UserInterface.gd" type="Script" id=16]
 
 [node name="UserInterface" type="CanvasLayer"]
@@ -22,10 +23,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -512.0
-margin_top = -90.0416
+margin_top = -134.94
 margin_right = -1.0
-margin_bottom = -76.0416
+margin_bottom = -109.94
 rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 6 )
 text = "Press Space to Talk"
 align = 1
 __meta__ = {
@@ -38,6 +40,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
