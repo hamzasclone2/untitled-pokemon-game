@@ -3,7 +3,7 @@ extends Node
 var BasicEnemy = {
 	health = 100,
 	maxHealth =  100,
-	speed = 100
+	speed = 200
 }
 
 var NPCs = {

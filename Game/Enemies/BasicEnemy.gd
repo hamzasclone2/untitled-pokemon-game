@@ -20,6 +20,7 @@ func take_damage(damage):
 	AnimPlayer.play("hit")
 	
 func _physics_process(delta):
+	velocity = Vector2.ZERO
 	if player:
 		velocity = position.direction_to(player.position) * speed
 	velocity = move_and_slide(velocity)
@@ -36,4 +37,5 @@ func _on_Area2D_body_entered(body):
 		player = body
 
 
-		
+func _on_Area2D_body_exited(body):
+	player = null

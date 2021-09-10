@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 196.211
+radius = 361.655
 
 [node name="BasicEnemy" type="KinematicBody2D" groups=[
 "enemy",
@@ -54,3 +54,4 @@ margin_bottom = -44.0566
 rect_scale = Vector2( 0.1, 0.1 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
