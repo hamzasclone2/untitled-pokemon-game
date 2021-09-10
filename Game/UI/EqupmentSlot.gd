@@ -3,6 +3,10 @@ extends TextureRect
 onready var tool_tip = preload("res://Game/UI/Templates/ToolTip.tscn")
 
 func _ready():
+	var item_id = PlayerAttributes.equipment_data[get_parent().get_name()]
+	if(item_id != null):
+		var item_name = GameData.item_data[str(item_id)]["Name"]
+		texture = load("res://Images/Icon_Items/" + item_name + ".png")
 	connect("mouse_entered", self, "_on_Icon_mouse_entered")
 	connect("mouse_exited", self, "_on_Icon_mouse_exited")
 

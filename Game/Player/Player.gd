@@ -18,6 +18,7 @@ onready var talkLabel = get_tree().root.get_node("Test/UserInterface/TalkLabel")
 
 
 func get_input():
+	PlayerAttributes.checkEquipment()
 	if Input.is_action_just_pressed("click") and PlayerAttributes.equipment_data["MainHand"] != null:
 		if PlayerAttributes.current_weapon_type == "Sword":
 			sword.visible = true

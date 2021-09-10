@@ -18,17 +18,7 @@ var numArrows = 10
 
 var inv_data = {}
 
-var equipment_data = {
-	"Head": null,
-	"Hand": null,
-	"Chest": null,
-	"Legs": null,
-	"Feet": null,
-	"MainHand": null,
-	"OffHand": null,
-	"Accessory": null,
-	
-}
+var equipment_data = {}
 
 func addInventoryItem(itemKey, amount):
 	var Inventory = get_tree().root.get_node("Test/UserInterface/Control/Inventory")
@@ -36,10 +26,28 @@ func addInventoryItem(itemKey, amount):
 
 func _ready():
 	var inv_data_file = File.new()
-	inv_data_file.open("res://json_files/inv_data_file.json", File.READ)
+	inv_data_file.open("user://inv_data_file.json", File.READ)
 	var inv_data_json = JSON.parse(inv_data_file.get_as_text())
 	inv_data_file.close()
 	inv_data = inv_data_json.result
+	
+	var equip_data_file = File.new()
+	equip_data_file.open("user://equip_data_file.json", File.READ)
+	var equip_data_json = JSON.parse(equip_data_file.get_as_text())
+	equip_data_file.close()
+	equipment_data = equip_data_json.result
+	
+func save_game():
+	var file
+	file = File.new()
+	file.open("user://inv_data_file.json", File.WRITE)
+	file.store_line(to_json(inv_data))
+	file.close()
+	
+	file = File.new()
+	file.open("user://equip_data_file.json", File.WRITE)
+	file.store_line(to_json(equipment_data))
+	file.close()
 	
 func checkEquipment():
 	if equipment_data["MainHand"] != null:

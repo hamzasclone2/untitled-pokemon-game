@@ -7,3 +7,7 @@ func _on_ResumeButton_button_up():
 
 func _on_QuitButton_button_up():
 	get_tree().quit()
+
+
+func _on_SaveButton_button_up():
+	PlayerAttributes.save_game()
