@@ -35,25 +35,25 @@ margin_top = 114.0
 margin_right = 803.0
 margin_bottom = 236.0
 size_flags_vertical = 3
-text = "Resume"
+text = "Resume Game"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
 margin_top = 336.0
 margin_right = 803.0
 margin_bottom = 458.0
 size_flags_vertical = 3
-text = "Quit"
+text = "Save Game"
 
-[node name="SaveButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 margin_top = 558.0
 margin_right = 803.0
 margin_bottom = 680.0
 size_flags_vertical = 3
-text = "Save"
+text = "Quit Game"
 
 [node name="FileDialog" parent="." instance=ExtResource( 2 )]
 visible = false
 
 [connection signal="button_up" from="VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_button_up"]
-[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]

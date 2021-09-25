@@ -35,12 +35,12 @@ func loadFile(filePath):
 	inv_data = save_data["Inventory"]
 	equipment_data = save_data["Equipment"]
 	
-func save_game():
+func saveFile(filePath):
 	save_data["Equipment"] = equipment_data
 	save_data["Inventory"] = inv_data
 	var file
 	file = File.new()
-	file.open("user://save_file.json", File.WRITE)
+	file.open(filePath, File.WRITE)
 	file.store_line(to_json(save_data))
 	file.close()
 	

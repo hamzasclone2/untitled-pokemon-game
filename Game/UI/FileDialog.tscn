@@ -41,3 +41,4 @@ __meta__ = {
 }
 
 [connection signal="file_selected" from="LoadMenu" to="." method="_on_LoadMenu_file_selected"]
+[connection signal="file_selected" from="SaveMenu" to="." method="_on_SaveMenu_file_selected"]
