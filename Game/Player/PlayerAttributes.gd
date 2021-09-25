@@ -20,33 +20,29 @@ var inv_data = {}
 
 var equipment_data = {}
 
+var save_data = {}
+
 func addInventoryItem(itemKey, amount):
 	var Inventory = get_tree().root.get_node("Test/UserInterface/Control/Inventory")
 	Inventory.add(itemKey, amount)
 
 func _ready():
-	var inv_data_file = File.new()
-	inv_data_file.open("user://inv_data_file.json", File.READ)
-	var inv_data_json = JSON.parse(inv_data_file.get_as_text())
-	inv_data_file.close()
-	inv_data = inv_data_json.result
+	var save_file = File.new()
+	save_file.open("user://save_file.json", File.READ)
+	var save_file_json = JSON.parse(save_file.get_as_text())
+	save_file.close()
+	save_data = save_file_json.result
+	inv_data = save_data["Inventory"]
+	equipment_data = save_data["Equipment"]
 	
-	var equip_data_file = File.new()
-	equip_data_file.open("user://equip_data_file.json", File.READ)
-	var equip_data_json = JSON.parse(equip_data_file.get_as_text())
-	equip_data_file.close()
-	equipment_data = equip_data_json.result
 	
 func save_game():
+	save_data["Equipment"] = equipment_data
+	save_data["Inventory"] = inv_data
 	var file
 	file = File.new()
-	file.open("user://inv_data_file.json", File.WRITE)
-	file.store_line(to_json(inv_data))
-	file.close()
-	
-	file = File.new()
-	file.open("user://equip_data_file.json", File.WRITE)
-	file.store_line(to_json(equipment_data))
+	file.open("user://save_file.json", File.WRITE)
+	file.store_line(to_json(save_data))
 	file.close()
 	
 func checkEquipment():
