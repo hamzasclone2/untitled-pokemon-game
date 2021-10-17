@@ -3,7 +3,7 @@ extends Control
 
 
 func _on_PlayButton_button_up():
-	PlayerAttributes.newGame()
+	FileManager.newGame()
 	get_tree().change_scene("res://Game/Levels/Test.tscn")
 
 

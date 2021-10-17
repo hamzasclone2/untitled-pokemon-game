@@ -23,6 +23,7 @@ config/icon="res://Images/icon.png"
 PlayerAttributes="*res://Game/Player/PlayerAttributes.gd"
 NpcManager="*res://Game/Enemies/NPCManager.gd"
 GameData="*res://Game/GameData.gd"
+FileManager="*res://Game/FileManager.gd"
 
 [display]
 
