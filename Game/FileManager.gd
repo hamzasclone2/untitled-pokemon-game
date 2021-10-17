@@ -4,6 +4,11 @@ extends Node
 
 var save_data = {}
 
+func _ready():
+	var dir = Directory.new()
+	if not (dir.dir_exists("user://saves/")):
+		dir.make_dir("user://saves/")
+
 func loadFile(filePath):
 	var save_file = File.new()
 	save_file.open(filePath, File.READ)

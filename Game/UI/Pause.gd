@@ -10,5 +10,6 @@ func _on_QuitButton_button_up():
 
 
 func _on_SaveButton_button_up():
-	$FileDialog.showMenu("Save")
+	self.visible = false
+	get_parent().get_node("SaveMenu").visible = true
 	
