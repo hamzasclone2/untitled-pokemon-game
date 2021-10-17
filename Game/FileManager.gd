@@ -1,3 +1,5 @@
+#Script for any file operations and any interaction with save_data
+
 extends Node
 
 var save_data = {}
