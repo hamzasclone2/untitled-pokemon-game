@@ -1,0 +1,220 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/DalekPinpointBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game/UI/DialogPlayer.gd" type="Script" id=2]
+
+[sub_resource type="ExternalTexture" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "TextDisplay"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="ExternalTexture" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="ExternalTexture" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "PressSpace"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "PressSpace"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[node name="DialogPlayer" type="Node"]
+script = ExtResource( 2 )
+
+[node name="DialogBox" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -4.0
+margin_right = 10.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="NinePatchRect" parent="DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -720.0
+margin_top = -192.0
+margin_right = 720.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 1440, 384 )
+texture = SubResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox/Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 48.0
+margin_right = -16.0
+margin_bottom = -48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BodyLabel" type="Label" parent="DialogBox/Body/MarginContainer"]
+margin_right = 1408.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Placeholder Text"
+
+[node name="BodyAnimPlayer" type="AnimationPlayer" parent="DialogBox/Body/MarginContainer/BodyLabel"]
+anims/TextDisplay = SubResource( 3 )
+
+[node name="Speaker" type="NinePatchRect" parent="DialogBox/Body"]
+margin_left = -50.9424
+margin_top = -40.4543
+margin_right = 219.058
+margin_bottom = 31.5457
+rect_min_size = Vector2( 270, 72 )
+texture = SubResource( 4 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeakerLabel" type="Label" parent="DialogBox/Body/Speaker"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "Speaker"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceBar" type="NinePatchRect" parent="DialogBox/Body"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -324.888
+margin_top = -40.0
+margin_right = 59.1116
+margin_bottom = 32.0
+texture = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceBarLabel" type="Label" parent="DialogBox/Body/SpaceBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Press Space"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceBarAnimPlayer" type="AnimationPlayer" parent="DialogBox/Body/SpaceBar"]
+autoplay = "PressSpace"
+anims/PressSpace = SubResource( 8 )
+
+[node name="SelectChoice" type="NinePatchRect" parent="DialogBox/Body"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -324.888
+margin_top = -40.0
+margin_right = 59.1116
+margin_bottom = 32.0
+rect_scale = Vector2( 1.02, 1.02 )
+texture = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectChoice" type="Label" parent="DialogBox/Body/SelectChoice"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Select Choice"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectChoiceAnimPlayer" type="AnimationPlayer" parent="DialogBox/Body/SelectChoice"]
+autoplay = "PressSpace"
+anims/PressSpace = SubResource( 9 )
+
+[node name="OptionList" type="VBoxContainer" parent="DialogBox/Body"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1140.0
+margin_top = -95.0
+margin_bottom = -15.0
+grow_vertical = 0
+
+[connection signal="animation_finished" from="DialogBox/Body/MarginContainer/BodyLabel/BodyAnimPlayer" to="." method="_on_BodyAnimPlayer_animation_finished"]
