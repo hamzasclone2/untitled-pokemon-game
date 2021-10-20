@@ -18,24 +18,38 @@ story = {
 "links": {
 0: 3
 },
-"text": "<speaker>Hamza</speaker>
-<dialog>Hello!</dialog>"
+"text": "<speaker>Bob</speaker>
+<dialog>Hello there Warrior!</dialog>"
 },
 3: {
 "links": {
 0: 4
 },
-"text": "<speaker>Jonah</speaker>
-<dialog>Test test test</dialog>"
+"text": "<speaker>Bob</speaker>
+<dialog>It seems my house has been taken over by vampires.</dialog>"
 },
 4: {
 "links": {
 0: 5
 },
-"text": "<speaker>Hamza</speaker>
-<dialog>evil</dialog>"
+"text": "<speaker>Bob</speaker>
+<dialog>I was planning on moving anyways so I don't really mind</dialog>"
 },
 5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Bob</speaker>
+<dialog>But...I do want my slingshot. I don't remember where I left it...</dialog>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Bob</speaker>
+<dialog>If you find it, please bring it back to me!</dialog>"
+},
+7: {
 "links": {
 },
 "text": "<end>"

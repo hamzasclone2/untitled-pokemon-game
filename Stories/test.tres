@@ -17,7 +17,7 @@ story = {
 "name": "Test",
 "nodes": {
 1: {
-"graph_offset": Vector2( 40, 40 ),
+"graph_offset": Vector2( 20, -140 ),
 "links": {
 0: 2
 },
@@ -27,40 +27,62 @@ story = {
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 40, 220 ),
+"graph_offset": Vector2( 20, 40 ),
 "links": {
 0: 3
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
-"text": "<speaker>Hamza</speaker>
-<dialog>Hello!</dialog>",
+"text": "<speaker>Bob</speaker>
+<dialog>Hello there Warrior!</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 40, 400 ),
+"graph_offset": Vector2( 480, 40 ),
 "links": {
 0: 4
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
-"text": "<speaker>Jonah</speaker>
-<dialog>Test test test</dialog>",
+"text": "<speaker>Bob</speaker>
+<dialog>It seems my house has been taken over by vampires.</dialog>",
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 40, 580 ),
+"graph_offset": Vector2( 940, 40 ),
 "links": {
 0: 5
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
-"text": "<speaker>Hamza</speaker>
-<dialog>evil</dialog>",
+"text": "<speaker>Bob</speaker>
+<dialog>I was planning on moving anyways so I don't really mind</dialog>",
 "type": "line"
 },
 5: {
-"graph_offset": Vector2( 40, 760 ),
+"graph_offset": Vector2( 1400, 40 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Bob</speaker>
+<dialog>But...I do want my slingshot. I don't remember where I left it...</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 20, 220 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Bob</speaker>
+<dialog>If you find it, please bring it back to me!</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 20, 400 ),
 "links": {
 },
 "rect_size": Vector2( 324, 137 ),

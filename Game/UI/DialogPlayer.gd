@@ -15,20 +15,22 @@ var nid = 0
 var final_nid = 0
 var StoryReader
 
-func _ready():
+
+func start(dialogname):
+	#get_tree().paused = true
 	var StoryReaderClass = load("res://addons/EXP-System-Dialog/Reference_StoryReader/EXP_StoryReader.gd")
 	StoryReader = StoryReaderClass.new()
 	var story = load("res://Stories/test_baked.tres")
 	StoryReader.read(story)
-	
+
 	DialogBox.visible = false
 	SpaceBarIcon.visible = false
 	SelectChoiceIcon.visible = false
 	OptionList.visible = false
-	
+
 	clear_options()
-	
-	play_dialog("BranchTest")
+
+	play_dialog(dialogname)
 	
 func _input(event):
 	if event is InputEventKey:
@@ -82,6 +84,7 @@ func get_next_node(slot : int = 0):
 	nid = StoryReader.get_nid_from_slot(did, nid, slot)
 	if nid == final_nid:
 		DialogBox.visible = false
+		get_tree().paused = false
 	
 func get_tagged_text(tag: String, text: String) -> String:
 	var start_tag = "<" + tag + ">"

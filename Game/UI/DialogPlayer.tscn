@@ -69,8 +69,11 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[node name="DialogPlayer" type="Node"]
+[node name="DialogPlayer" type="Control"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DialogBox" type="Control" parent="."]
 anchor_right = 1.0
