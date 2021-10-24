@@ -24,13 +24,11 @@ func initialize():
 	quest_data = quest_data_json.result
 	
 	
-	"""
-	Iterate through the dictionary for each quest. The keys are just identifiers
-	that don't matter so we don't need to store them. (10001, 10002, etc.)
-	"""
+	#Iterate through the dictionary for each quest. The keys are just identifiers
+	#that don't matter so we don't need to store them. (10001, 10002, etc.)
 	for key in quest_data:
 		var _quest = preload("res://Game/QuestSystem/Quest.tscn").instance()
-		_quest.initialize(quest_data[key]["Title"], quest_data[key]["QuestText"])
+		_quest.initialize(quest_data[key]["Title"], quest_data[key]["QuestText"], quest_data[key]["Owner"])
 		unavialable_quests.add_child(_quest)
 	
 		_quest.add_objectives(quest_data[key]["Objectives"])

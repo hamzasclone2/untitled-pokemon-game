@@ -38,4 +38,4 @@ func finish() -> void:
 	emit_signal("completed", self)
 
 func as_text() -> String:
-	return "Objective %s as_text method should be overriden" % get_path()
+	return object_text

@@ -13,16 +13,19 @@ onready var objectives = $Objectives
 
 export var title: String
 export var description: String
+export var quest_owner: String
 
 export var reward_ondelivery: bool = false
 export var _reward_experience: int
 onready var _reward_items: Node = $ItemRewards
 
 
-func initialize(_title: String, _description: String):
+func initialize(_title: String, _description: String, _owner: String):
 	#Set title and description
 	title = _title
 	description = _description
+	quest_owner = _owner
+	
 	self.name = _title
 
 func add_objectives(_objectives: Array):
