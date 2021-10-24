@@ -32,7 +32,7 @@ func _physics_process(delta):
 		return
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy") && not bodies_hit.has(body.name):
-			body.take_damage(PlayerAttributes.damage)
+			body.take_damage(PlayerAttributes.damage, self)
 			bodies_hit.append(body.name)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
