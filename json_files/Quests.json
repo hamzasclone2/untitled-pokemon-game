@@ -1,0 +1,14 @@
+{
+    "10001": {
+        "Title": "Bob's Slingshot",
+        "QuestText": "Bob needs your help! Return his slingshot, and you will be rewarded.",
+        "Objectives": [[1, "collect", "Slingshot", "Retrieve Bob's Slingshot"]],
+        "Owner": "Bob"
+    },
+    "10002": {
+        "Title": "TEST QUEST",
+        "QuestText": "Doesn't matter.",
+        "Objectives": [[5, "kill", "BasicEnemy", "Kill 5 zombies"], [0, "idk", "nothing", "Can't ever complete this. hahaha"]],
+        "Owner": ""
+    }
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Levels/Test.gd" type="Script" id=1]
 [ext_resource path="res://Game/UI/UserInterface.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Game/TileMaps/TileMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/NPCs/Bob.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Items/Slingshot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/QuestSystem/QuestSystem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Items/TreasureChest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Enemies/BasicEnemy.tscn" type="PackedScene" id=9]
 
@@ -51,3 +52,5 @@ position = Vector2( 2366.99, -1154.09 )
 
 [node name="BasicEnemy7" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1006.28, -1315.36 )
+
+[node name="QuestSystem" parent="." instance=ExtResource( 7 )]

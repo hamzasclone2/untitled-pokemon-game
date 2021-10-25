@@ -4,6 +4,7 @@ extends Control
 
 func _on_PlayButton_button_up():
 	FileManager.newGame()
+	QuestSystem.initialize()
 	get_tree().change_scene("res://Game/Levels/Test.tscn")
 
 
