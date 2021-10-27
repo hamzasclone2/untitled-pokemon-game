@@ -28,11 +28,20 @@ func addInventoryItem(itemKey, amount):
 
 
 #Information passed to and from FileManager.gd ------------
+
+# Gets data from FileManager and saves them to the player attributes
+# This includes the inventory and equipment data. save_data is the dictionary
+# that contains both the inventory and equipment.
+# Possibly include quests, but not sure if this needs to be contained in the game
+# or the player.
 func setData(load_inv, load_equip, load_save):
 	inv_data = load_inv
 	equipment_data = load_equip
 	save_data = load_save
 
+# Again save_data is the dictionary containing the inventory and equipment. This
+# function will take the inventory and equipment and update save_data, then update
+# the save_data in the FileManager so that it can then write that to a JSON file.
 func setSave(filePath):
 	save_data["Equpment"] = equipment_data
 	save_data["Inventory"] = inv_data
