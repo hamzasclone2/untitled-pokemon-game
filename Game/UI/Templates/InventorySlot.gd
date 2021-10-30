@@ -2,6 +2,7 @@ extends TextureRect
 
 onready var tool_tip = preload("res://Game/UI/Templates/ToolTip.tscn")
 onready var split_popup = preload("res://Game/UI/Templates/ItemSplitPopup.tscn")
+onready var healthBar = get_tree().root.get_node("Test/UserInterface/HealthBar")
 
 var isUsable = false
 
@@ -11,10 +12,24 @@ func _input(event):
 		var item = PlayerAttributes.inv_data[inv_slot]["Item"]
 		if item != null:
 			var gameItem = GameData.item_data[str(item)]
-			if gameItem["Category"] == "Food":
+			if gameItem["Category"] == "Food" and PlayerAttributes.health != PlayerAttributes.maxHealth:
 				PlayerAttributes.health += gameItem["FoodSatiation"]
 				if PlayerAttributes.health > PlayerAttributes.maxHealth:
 					PlayerAttributes.health = PlayerAttributes.maxHealth
+				healthBar._on_health_updated(PlayerAttributes.health)
+				var stack = PlayerAttributes.inv_data[inv_slot]["Stack"]
+				if(stack > 1):
+					PlayerAttributes.inv_data[inv_slot]["Stack"] -= 1
+					stack = PlayerAttributes.inv_data[inv_slot]["Stack"]
+					get_node("../Stack").set_text(str(stack))
+				elif(stack == 1):
+					PlayerAttributes.inv_data[inv_slot]["Item"] = null
+					PlayerAttributes.inv_data[inv_slot]["Stack"] = null
+					self.texture = null
+					get_node("../Stack").set_text("")
+					if has_node("ToolTip"):
+						get_node("ToolTip").free()
+				
 
 func get_drag_data(_pos):
 	if get_tree().get_nodes_in_group("Splitter"):
@@ -140,7 +155,6 @@ func SplitStack(split_amount, data):
 
 func _on_Icon_mouse_entered():
 	isUsable = true
-	print(isUsable)
 	var tool_tip_instance = tool_tip.instance()
 	tool_tip_instance.origin = "Inventory"
 	tool_tip_instance.slot = get_parent().get_name()
@@ -155,5 +169,5 @@ func _on_Icon_mouse_entered():
 
 func _on_Icon_mouse_exited():
 	isUsable = false
-	print(isUsable)
-	get_node("ToolTip").free()
+	if has_node("ToolTip"):
+		get_node("ToolTip").free()
