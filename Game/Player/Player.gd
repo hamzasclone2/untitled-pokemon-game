@@ -1,7 +1,13 @@
 extends KinematicBody2D
 
+# I think you might want a friction that is higher than the players speed
+# and an acceleration that is slightly lower than the players speed.
+const FRICTION = 750
+const ACCELERATION = 600
+
 var velocity = Vector2()
 var knockback = Vector2.ZERO
+
 onready var sword = $Sword
 onready var bow = $Bow
 onready var AnimPlayer = $AnimationPlayer
@@ -10,10 +16,13 @@ onready var healthBar = get_parent().get_node("UserInterface/HealthBar")
 
 var weapons = ["empty", "sword", "spear", "bow"]
 var weaponsIndex = 0
+
 var isAbleToTalk = false
 var isAbleToOpen = false
+
 var npc
 var treasureChest
+
 onready var talkLabel = get_tree().root.get_node("Test/UserInterface/TalkLabel")
 
 
@@ -30,29 +39,22 @@ func get_input():
 			sword.visible = false
 			bow.shoot()
 			PlayerAttributes.numArrows -= 1
-	velocity = Vector2()
-	if Input.is_action_pressed('left'):
-		velocity.x -= 1
-	if Input.is_action_pressed('right'):
-		velocity.x += 1
-	if Input.is_action_pressed('up'):
-		velocity.y -= 1
-	if Input.is_action_pressed('down'):
-		velocity.y += 1
-	
-	velocity = velocity.normalized() * PlayerAttributes.speed
-	
 
-func _physics_process(delta):
+
+
+func _ready():
+	PlayerAttributes.connect("player_died", self, "_on_player_died")
+
+
+func _process(_delta):
+	# Moved this stuff to _process because they don't do anything with the physics
+	# of the game. 
 	if(PlayerAttributes.equipment_data["MainHand"] == null):
 		sword.visible = false
 	if(PlayerAttributes.equipment_data["OffHand"] ==  null):
 		bow.visible = false
 	get_input()
-	move_and_slide(velocity)
-	knockback(delta)
-	look_at(get_global_mouse_position())
-		
+	
 	if(isAbleToTalk):
 		if(Input.is_action_just_pressed("ui_accept")):
 			talkLabel.visible = false
@@ -63,8 +65,36 @@ func _physics_process(delta):
 		if(Input.is_action_just_pressed("ui_accept")):
 			treasureChest.open()
 			isAbleToOpen = false
+
+
+
+
+func _physics_process(delta):
 	
+	# Player movement ----------------------------------------------------------
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	input_vector = input_vector.normalized()
 	
+	if input_vector != Vector2.ZERO:
+		# For acceleration, commented code is just setting the velocity to our speed
+		velocity = velocity.move_toward(input_vector * PlayerAttributes.speed, ACCELERATION * delta)
+		#velocity = input_vector * PlayerAttributes.speed
+	else:
+		# For friction, commented code is just setting the velocity to 0
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		#velocity = Vector2.ZERO
+	
+	velocity = move_and_slide(velocity)
+	# --------------------------------------------------------------------------
+	
+	knockback(delta)
+	look_at(get_global_mouse_position())
+
+
+
+
 
 func knockback(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 1400 * delta)
@@ -83,22 +113,20 @@ func takeDamage(damage):
 	PlayerAttributes.health -= damage
 	healthBar._on_health_updated(PlayerAttributes.health)
 	healthBar.start()
-	if(PlayerAttributes.health <= 0):
-		queue_free()
+
+func _on_player_died():
+	queue_free()
+
 
 func _on_Area2D_body_entered(body):
-	if(body.is_in_group("NPC")):
-		talkLabel.text = "Press Space to Talk"
-		talkLabel.visible = true
-		isAbleToTalk = true
-		npc = body
-	elif(body.is_in_group("TreasureChest")):
+#	if(body.is_in_group("NPC")):
+#		talkLabel.text = "Press Space to Talk"
+#		talkLabel.visible = true
+#		isAbleToTalk = true
+#		npc = body
+	if(body.is_in_group("TreasureChest")):
 		talkLabel.text = "Press Space to Open"
 		talkLabel.visible = true
 		isAbleToOpen = true
 		treasureChest = body
 
-
-func _on_Area2D_body_exited(body):
-	isAbleToTalk = false
-	talkLabel.visible = false

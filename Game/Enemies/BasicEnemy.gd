@@ -32,10 +32,9 @@ func _ready():
 	healthBar._on_health_updated(health)
 
 
-func _on_Area2D_body_entered(body):
-	if body.name == "Player":
-		player = body
+func _on_DetectionZone_body_entered(body):
+	player = body
 
 
-func _on_Area2D_body_exited(body):
+func _on_DetectionZone_body_exited(body):
 	player = null

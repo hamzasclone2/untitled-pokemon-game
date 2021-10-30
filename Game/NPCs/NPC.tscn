@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ReusableParts/DetectionZone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Images/clipart1323091.png" type="Texture" id=2]
+[ext_resource path="res://Game/NPCs/NPC.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 43.5, 67 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 94.0513
+
+[node name="NPC" type="StaticBody2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DetectionZone" parent="." instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="DetectionZone" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]
+
+[editable path="DetectionZone"]
