@@ -9,6 +9,11 @@ onready var dialogPlayer = load("res://Game/UI/DialogPlayer.tscn")
 var dia = null
 
 func _process(delta):
+	if(control.visible == true):
+		GameData.inventoryVisible = true
+	else: 
+		GameData.inventoryVisible = false
+	
 	if Input.is_action_just_released("inventoryMenu"):
 		control.visible = !control.visible
 		
