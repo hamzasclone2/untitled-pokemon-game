@@ -3,6 +3,19 @@ extends TextureRect
 onready var tool_tip = preload("res://Game/UI/Templates/ToolTip.tscn")
 onready var split_popup = preload("res://Game/UI/Templates/ItemSplitPopup.tscn")
 
+var isUsable = false
+
+func _input(event):
+	if event.is_action_pressed("rightClick") and isUsable:
+		var inv_slot = get_parent().get_name()
+		var item = PlayerAttributes.inv_data[inv_slot]["Item"]
+		if item != null:
+			var gameItem = GameData.item_data[str(item)]
+			if gameItem["Category"] == "Food":
+				PlayerAttributes.health += gameItem["FoodSatiation"]
+				if PlayerAttributes.health > PlayerAttributes.maxHealth:
+					PlayerAttributes.health = PlayerAttributes.maxHealth
+
 func get_drag_data(_pos):
 	if get_tree().get_nodes_in_group("Splitter"):
 		return
@@ -126,6 +139,8 @@ func SplitStack(split_amount, data):
 		get_node("../Stack").set_text("")
 
 func _on_Icon_mouse_entered():
+	isUsable = true
+	print(isUsable)
 	var tool_tip_instance = tool_tip.instance()
 	tool_tip_instance.origin = "Inventory"
 	tool_tip_instance.slot = get_parent().get_name()
@@ -139,4 +154,6 @@ func _on_Icon_mouse_entered():
 
 
 func _on_Icon_mouse_exited():
+	isUsable = false
+	print(isUsable)
 	get_node("ToolTip").free()
