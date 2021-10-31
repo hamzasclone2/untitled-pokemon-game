@@ -1,20 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Game/NPCs/Bob.gd" type="Script" id=1]
-[ext_resource path="res://Images/clipart1323091.png" type="Texture" id=2]
+[ext_resource path="res://Game/NPCs/Instanceable/NPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/NPCs/Bob.gd" type="Script" id=2]
+[ext_resource path="res://Images/clipart1323091.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.8549, 67.3396 )
+extents = Vector2( 43.5, 68.5 )
 
-[node name="Bob" type="StaticBody2D" groups=[
-"NPC",
-]]
-script = ExtResource( 1 )
+[sub_resource type="CircleShape2D" id=2]
+radius = 94.0479
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.70711, -0.353557 )
+[node name="Bob" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="DetectionZone" index="0"]
+shape = SubResource( 2 )
+
+[editable path="DetectionZone"]
