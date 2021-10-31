@@ -57,9 +57,9 @@ func _process(_delta):
 	
 	if(isAbleToTalk):
 		if(Input.is_action_just_pressed("ui_accept")):
+			isAbleToTalk = false
 			talkLabel.visible = false
 			npc.talk()
-			talkLabel.visible = true
 
 	if(isAbleToOpen):
 		if(Input.is_action_just_pressed("ui_accept")):

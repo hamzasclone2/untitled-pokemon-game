@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game/UI/SaveMenu.gd" type="Script" id=1]
+
+[node name="SaveMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.5
+margin_top = -157.5
+margin_right = 116.5
+margin_bottom = 157.5
+items = [ "--- New Save File ---", null, false ]
+
+[node name="SaveButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.5
+margin_top = 174.425
+margin_right = 116.5
+margin_bottom = 222.425
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.5
+margin_top = 239.509
+margin_right = 116.5
+margin_bottom = 287.509
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="SaveButton" to="." method="_on_SaveButton_button_up"]
+[connection signal="button_up" from="CancelButton" to="." method="_on_CancelButton_button_up"]

@@ -1,20 +1,16 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Game/UI/DialoguePopup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/UI/CharacterSheet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/UI/Inventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/UI/Pause.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/UI/HealthBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Themes/theme1.theme" type="Theme" id=6]
+[ext_resource path="res://Game/UI/SaveMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/UI/UserInterface.gd" type="Script" id=16]
 
 [node name="UserInterface" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 16 )
-
-[node name="DialoguePopup" parent="." instance=ExtResource( 1 )]
-margin_top = 824.84
-margin_bottom = 864.84
 
 [node name="TalkLabel" type="Label" parent="."]
 visible = false
@@ -50,4 +46,7 @@ __meta__ = {
 [node name="Inventory" parent="Control" instance=ExtResource( 3 )]
 
 [node name="Pause" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="SaveMenu" parent="." instance=ExtResource( 7 )]
 visible = false

@@ -4,6 +4,10 @@ var origin = ""
 var slot = ""
 var valid = false
 
+func _process(delta):
+	if(GameData.inventoryVisible == false):
+		queue_free()
+
 func _ready():
 	var item_id
 	if origin == "Inventory":

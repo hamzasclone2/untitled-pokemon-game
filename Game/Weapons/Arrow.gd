@@ -33,7 +33,7 @@ func _on_Pickup_body_entered(body):
 
 func _on_ArrowTip_body_entered(body):
 	if body.name != "Player" and body.is_in_group("enemy"):
-		body.take_damage(PlayerAttributes.off_damage)
+		body.take_damage(PlayerAttributes.off_damage, self)
 		queue_free()
 	elif body.name != "Player":
 		set_physics_process(false)

@@ -13,4 +13,4 @@ func _on_QuitButton_button_up():
 
 
 func _on_LoadButton_button_up():
-	$FileDialog.showMenu("Load")
+	$FileDialog.showMenu()
