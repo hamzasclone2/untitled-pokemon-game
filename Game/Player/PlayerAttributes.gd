@@ -1,11 +1,11 @@
 extends Node
 
 var experience = 0
-var health = 100
+var health = 100 setget update_health
 var maxHealth = 100
 var armor = 0
 var damage = 0
-var speed = 400
+var speed = 200
 
 var current_weapon_type = null
 var current_weapon = null
@@ -17,23 +17,31 @@ var off_damage = 0
 var numArrows = 10
 
 var inv_data = {}
-
 var equipment_data = {}
-
 var save_data = {}
+
+signal player_died
+
+
+
+
+
+
+
 
 func addInventoryItem(itemKey, amount):
 	var Inventory = get_tree().root.get_node("Test/UserInterface/Control/Inventory")
 	Inventory.add(itemKey, amount)
 
 
-#Information passed to and from FileManager.gd ------------
+#Information passed to and from FileManager.gd ---------------------------------
 
 # Gets data from FileManager and saves them to the player attributes
 # This includes the inventory and equipment data. save_data is the dictionary
 # that contains both the inventory and equipment.
 # Possibly include quests, but not sure if this needs to be contained in the game
 # or the player.
+
 func setData(load_inv, load_equip, load_save):
 	inv_data = load_inv
 	equipment_data = load_equip
@@ -47,7 +55,20 @@ func setSave(filePath):
 	save_data["Inventory"] = inv_data
 	FileManager.save_data = save_data
 	FileManager.saveFile(filePath)
-#----------------------------------------------------------
+#-------------------------------------------------------------------------------
+
+
+func update_health(new_health):
+	print (new_health)
+	health = new_health
+	if health <= 0:
+		emit_signal("player_died")
+
+
+
+
+
+
 
 
 func checkEquipment():
