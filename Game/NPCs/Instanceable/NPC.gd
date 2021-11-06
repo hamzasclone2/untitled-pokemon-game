@@ -23,7 +23,6 @@ func talk():
 
 func _on_DetectionZone_body_entered(body):
 	set_process(true)
-	print("HENLO")
 	talkLabel.text = "Press Space to Talk"
 	talkLabel.visible = true
 	isAbletoTalk = true

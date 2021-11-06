@@ -6,11 +6,16 @@
 extends Node
 
 # QuestContainers
-onready var unavialable_quests = $Unavailable
+onready var unavailable_quests = $Unavailable
 onready var available_quests = $Available
 onready var active_quests = $Active
 onready var completed_quests = $Completed      # Bucket for Quests where all objectives have been completed
 onready var delivered_quests = $Delivered      # Bucket for Quests where the quest has been turned in
+
+
+# Variables for each NPC
+var bob_quests = []
+
 
 
 # When a new game is started initialize() is called
@@ -41,9 +46,12 @@ func initialize():
 	for key in quest_data:
 		var _quest = preload("res://Game/QuestSystem/Quest.tscn").instance()
 		_quest.initialize(quest_data[key]["Title"], quest_data[key]["QuestText"], quest_data[key]["Owner"])
-		unavialable_quests.add_child(_quest)
+		unavailable_quests.add_child(_quest)
 	
 		_quest.add_objectives(quest_data[key]["Objectives"])
+		
+		if quest_data[key]["Owner"] == "Bob":
+			bob_quests.append(quest_data[key]["Title"])
 
 
 
