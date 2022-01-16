@@ -11,8 +11,7 @@ func _ready():
 		if u_quest.name == quests[0]:
 			_quest = u_quest
 
-	QuestSystem.unavailable_quests.remove_child(_quest)
-	QuestSystem.available_quests.add_child(_quest)
+	QuestSystem.available(_quest)
 
 
 func talk():

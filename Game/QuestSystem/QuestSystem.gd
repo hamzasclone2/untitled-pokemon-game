@@ -54,6 +54,17 @@ func initialize():
 			bob_quests.append(quest_data[key]["Title"])
 
 
+func find_unavailable(reference: Quest) -> Quest:
+	return unavailable_quests.find(reference)
+
+
+func get_unavailable_quests() -> Array:
+	return unavailable_quests.get_quests()
+
+
+func is_unavailable(reference: Quest) -> bool:
+	return unavailable_quests.find(reference) != null
+
 
 # Pass in a quest, call QuestContainer's find function with the quest. Specifically
 # looking at the available bucket. If it is available return the quest, otherwise
@@ -73,6 +84,53 @@ func get_available_quests() -> Array:
 # null return false.
 func is_available(reference: Quest) -> bool:
 	return available_quests.find(reference) != null
+
+
+func find_active(reference: Quest) -> Quest:
+	return active_quests.find(reference)
+
+
+func get_active_quests() -> Array:
+	return active_quests.get_quests()
+
+
+func is_active(reference: Quest) -> bool:
+	return available_quests.find(reference) != null
+
+
+func find_completed(reference: Quest) -> Quest:
+	return completed_quests.find(reference)
+
+
+func get_completed_quests() -> Array:
+	return completed_quests.get_quests()
+
+
+func is_completed(reference: Quest) -> bool:
+	return completed_quests.find(reference) != null
+
+
+func find_delivered(reference: Quest) -> Quest:
+	return delivered_quests.find(reference)
+
+
+func get_delivered() -> Array:
+	return delivered_quests.get_quests()
+
+
+func is_delivered(reference: Quest) -> bool:
+	return delivered_quests.find(reference) != null
+
+
+func available(reference: Quest):
+	var quest: Quest = unavailable_quests.find(reference)
+	
+	unavailable_quests.remove_child(quest)
+	available_quests.add_child(quest)
+
+
+
+
 
 
 # Pass in a Quest, call QuestContainer's find function with the Quest. Specifically
