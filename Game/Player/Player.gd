@@ -44,6 +44,7 @@ func get_input():
 
 func _ready():
 	PlayerAttributes.connect("player_died", self, "_on_player_died")
+	PlayerAttributes.connect("leveled_up", self, "_on_player_leveled_up")
 
 
 func _process(_delta):
@@ -116,6 +117,9 @@ func takeDamage(damage):
 
 func _on_player_died():
 	queue_free()
+
+func _on_player_leveled_up():
+	PlayerAttributes.level += 1
 
 
 func _on_Area2D_body_entered(body):

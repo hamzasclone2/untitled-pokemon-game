@@ -1,11 +1,14 @@
 extends Node
 
-var experience = 0
 var health = 100 setget update_health
 var maxHealth = 100
 var armor = 0
 var damage = 0
 var speed = 200
+
+var level = 0 setget update_level
+var experience = 0 setget update_experience
+onready var experience_needed = ExperienceSystem.xpNeeded(level)
 
 var current_weapon_type = null
 var current_weapon = null
@@ -21,8 +24,7 @@ var equipment_data = {}
 var save_data = {}
 
 signal player_died
-
-
+signal leveled_up
 
 
 
@@ -65,9 +67,18 @@ func update_health(new_health):
 		emit_signal("player_died")
 
 
+func update_experience(new_experience):
+	print (new_experience)
+	experience = new_experience
+	if experience >= experience_needed:
+		emit_signal("leveled_up")
+		experience = experience - experience_needed
 
 
-
+func update_level(new_level):
+	print(new_level)
+	level = new_level
+	experience_needed = ExperienceSystem.xpNeeded(level)
 
 
 

@@ -37,6 +37,7 @@ NpcManager="*res://Game/Enemies/NPCManager.gd"
 GameData="*res://Game/GameData.gd"
 FileManager="*res://Game/FileManager.gd"
 QuestSystem="*res://Game/QuestSystem/QuestSystem.tscn"
+ExperienceSystem="*res://Game/ExperienceSystem/ExperienceSystem.tscn"
 
 [display]
 
